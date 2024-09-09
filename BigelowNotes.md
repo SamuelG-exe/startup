@@ -18,7 +18,7 @@
 **Internet Hiearchy:**
 
 Application (Has FTP [File Transfer Protocol], SSH, HTTP[80, old]+HTTPS[433] [get/post/delete/put on a webpage], etc. are on their own ports)
-^ Transport (TCP = slower but reliable, makes reliable connection first, then transports w/ flow control *vs* UDP = unreliable but quicker)
+^ Transport (TCP = slower but reliable, makes reliable connection first, then transports w/ flow control *vs* UDP = unreliable but quicker to connect)
  ^ Inernet (via WiFi using Internet Protocol language [IP], Host-to-Host connection)
   ^ Physical (Machine)
 
