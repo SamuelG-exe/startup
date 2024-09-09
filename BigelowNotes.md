@@ -13,3 +13,12 @@
 - Link to the (elastic) IP Address of Sam's and my shared running server: http://184.73.129.137
 - Terminal command to `ssh` in: `ssh -i [key pair file location] ubuntu@184.73.129.137`
 - `exit` is the command to leave
+
+### 9/9/24
+**Internet Hiearchy:**
+Application
+^ Transport
+ ^ Inernet (via WiFi using Internet Protocol language [IP])
+  ^ Physical (Machine)
+
+Using IP Address is 32-bits, consisting of Source of Destination, allowing for a unique IP Address in the whole world
