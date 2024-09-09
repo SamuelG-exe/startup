@@ -16,6 +16,7 @@
 
 ### 9/9/24
 **Internet Hiearchy:**
+
 Application (Has FTP [File Transfer Protocol], SSH, HTTP[80, old]+HTTPS[433] [get/post/delete/put on a webpage], etc. are on their own ports)
 ^ Transport (TCP = slower but reliable, makes reliable connection first, then transports w/ flow control *vs* UDP = unreliable but quicker)
  ^ Inernet (via WiFi using Internet Protocol language [IP], Host-to-Host connection)
@@ -24,3 +25,5 @@ Application (Has FTP [File Transfer Protocol], SSH, HTTP[80, old]+HTTPS[433] [ge
 - Using IP Address is 32-bits, consisting of Source of Destination, allowing for a unique IP Address in the whole world
 - IP is unreliable because you don't know what the load/load size is, just starts sending, if it exceeds the buffer size, we lose info
 - DNS converts the IP Address into a human-readable/-intelligible name
+
+**History of the Internet:**
