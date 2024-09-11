@@ -35,3 +35,11 @@ Application (Has FTP [File Transfer Protocol], SSH, HTTP[80, old]+HTTPS[433] [ge
 - Brendan Eich created JavaScript, provides for interactive elements and dynamic content
 
 Web Browser (HTML, CSS, JavaScript) --> Web Server (DNS, IP)
+
+**Technology Stack:**
+- REACT
+- Caddy 2
+- Node.js
+- MongoDB
+*User -> Web Browser (React) -> Internet/HTTPS -> AWS EC2 Web Server (running Gateway thru Caddy, Node.js Web Services, and Atlas MongoDB) 
+         *Dev -> VS Code, Git, etc. (ssh in to ->
