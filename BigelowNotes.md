@@ -41,5 +41,6 @@ Web Browser (HTML, CSS, JavaScript) --> Web Server (DNS, IP)
 - Caddy 2
 - Node.js
 - MongoDB
-*User -> Web Browser (React) -> Internet/HTTPS -> AWS EC2 Web Server (running Gateway thru Caddy, Node.js Web Services, and Atlas MongoDB) 
-         *Dev -> VS Code, Git, etc. (ssh in to ->
+*User -> Web Browser (React) -> Internet/HTTPS -> AWS EC2 [Elastic Compute Cloud] Web Server (running Gateway thru Caddy, Node.js Web Services, and Atlas MongoDB) 
+         
+         *Dev -> VS Code, Git, etc. through ssh ->
