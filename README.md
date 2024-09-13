@@ -6,6 +6,9 @@
 In a world filled with content, finding collaborators nearby can still feel impossible. Freel’s location- and type-based search lets you discover exactly what you're looking for—whether it's a drummer, a photographer, or a singer—right in your community. Plus, with detailed profiles, artists can showcase their skills, making it easier than ever to connect with the perfect collaborator.
 Stop searching and start creating. Freel helps you find the talent you need locally, wherever you are. Join today and discover your next project partner just around the corner."
 
+
+
+
 **Key Features:**
 - Content posting with highlighted/pinned content to introduce their page
 - Personalized Pages
