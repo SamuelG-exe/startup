@@ -24,11 +24,8 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 *CSS*
 - Usage: Styles the app so it looks good across devices. Focus on responsiveness, good whitespace, color contrast, and typography.
 
-*JavaScript*
+*JavaScript/React*
 - Usage: Adds interactivity, including handling video and audio playback, searching for nearby artists, rating button interaction, filtering results by location, and filtered searches for musicians based off instrument and music style and for photographers/videographers based off the project (i.e. weddings, mission pics, music video, etc.).
-
-*React*
-- Usage: Power the front-end with React for a single-page application (SPA) feel, while managing components and routing across different views.
 
 *Web Services*
 - Usage: Make remote API calls to the Google Reviews API to fetch or save data, along with a potential API in collecting and publishing data on local, current events.
