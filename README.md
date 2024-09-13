@@ -1,4 +1,4 @@
-# startup
+# Freel
 
 **Freel Startup Elevator Pitch:**
 
