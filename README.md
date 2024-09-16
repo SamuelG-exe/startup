@@ -1,4 +1,4 @@
-# startup
+# Freel
 
 **Freel Startup Elevator Pitch:**
 
@@ -18,8 +18,13 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - Person-to-person Communication
 - Local events (possible API call) where users can register their attendance 
 
+<img width="833" alt="Screenshot 2024-09-13 at 11 24 56 AM" src="https://github.com/user-attachments/assets/7847b040-64f6-463f-8ac3-e7397261ff23">
+<img width="983" alt="Screenshot 2024-09-13 at 11 01 42 AM" src="https://github.com/user-attachments/assets/2f7fa271-c24c-47f3-9912-5737fbc16542">
+<img width="1104" alt="Screenshot 2024-09-13 at 11 02 46 AM" src="https://github.com/user-attachments/assets/da8ae3f0-8f58-4a1a-a9a2-e0691c510d47">
+<img width="1260" alt="Screenshot 2024-09-13 at 11 08 54 AM" src="https://github.com/user-attachments/assets/8e81c4eb-0726-431e-9f96-abe2133cce95">
 
 **Technology Breakdown:**
+
 
 *HTML*
 - Usage: Provides the structure for multiple web pages like the home page, music artist search, video search, and user profiles (where users can showcase their talent and display post-project ratings). Also, a separate page for login to authenticate users.
