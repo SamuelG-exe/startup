@@ -11,6 +11,7 @@
 
 ### 9/7/24
 - Link to the (elastic) IP Address of Sam's and my shared running server: http://184.73.129.137
+- Registered Domain w/ Namecheap.com http://freelconnect.com
 - Terminal command to `ssh` in: `ssh -i [key pair file location] ubuntu@184.73.129.137`
 - `exit` is the command to leave
 
