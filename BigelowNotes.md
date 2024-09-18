@@ -92,3 +92,72 @@ You can also chain the input and output of commands using special characters
 For example, you can list the files in a directory, pipe it into grep to search for files created in Nov, and then pipe that into wc to count the number of files found with a date of Nov.
 
 `ls -l | grep ' Nov ' | wc -l`
+
+
+### 9/18/24
+
+**3.1 HTML:** Structuring Web Applications
+
+<(open tag) html(attribute) lang="en"(attribute value)>
+</(closing tag) html>
+
+"<!-- commented text -->"
+
+<html>
+  <head>
+    <title>My First Page</title>
+  </head>
+  <body>
+    <main>
+      <p>Hello world</p>
+    </main>
+  </body>
+</html>
+
+Link References:
+
+Absolute:
+
+- "<a href="https://cs260.click/profile.png">"
+
+Relative:
+
+- <a href="profile.png" />
+- <a href="../images/profile.png" />
+
+HTML Tutorial Website = 
+
+HTML element = meaning
+html = The page container
+head = Header information
+title = Title of the page
+meta = Metadata for the page such as character set or viewport settings
+script = JavaScript reference. Either a external reference, or inline
+include = External content reference
+body = The entire content body of the page
+header = Header of the main content
+footer = Footer of the main content
+nav = Navigational inputs
+main = Main content of the page
+section = A section of the main content
+aside = Aside content from the main content
+div = A block division of content
+span = An inline span of content
+h<1-9> = Text heading. From h1, the highest level, down to h9, the lowest level
+p = A paragraph of text
+b = Bring attention
+table = Table
+tr = Table row
+th = Table header
+td = Table data
+ol,ul = Ordered or unordered list
+li = List item
+a = Anchor the text to a hyperlink
+img = Graphical image reference
+dialog = Interactive component such as a confirmation
+form = A collection of user input
+input = User input field
+audio = Audio content
+video = Video content
+svg = Scalable vector graphic content
+iframe = Inline frame of another HTML page
