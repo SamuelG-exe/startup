@@ -161,3 +161,5 @@ audio = Audio content
 video = Video content
 svg = Scalable vector graphic content
 iframe = Inline frame of another HTML page
+
+*The HTML elements that represent media include img, audio, video, svg, and canvas. The img, audio, and video elements are all simple references to an external file, but svg and canvas both contain the code to render a visual image that can even be animated.
