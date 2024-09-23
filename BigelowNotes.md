@@ -163,3 +163,22 @@ svg = Scalable vector graphic content
 iframe = Inline frame of another HTML page
 
 *The HTML elements that represent media include img, audio, video, svg, and canvas. The img, audio, and video elements are all simple references to an external file, but svg and canvas both contain the code to render a visual image that can even be animated.
+
+
+### 9/23/24:
+
+*CSS Notes:*
+
+      body {
+        color: red;
+      }
+      p {
+        color: green;
+      }
+      span {
+        color: blue;
+      }
+
+
+In this case, the rules cascade down from the highest nodes in the DOM tree to the lowest level. Any declaration property defined at a lower level will override the higher declaration. You can see this happening if you use the browser's debugger. In Chrome right click on the element and select inspect. You can then click on each element in the debugger and see what the value of the color property is. For the case defined above you will see that each of the higher level declarations is crossed out until you get to the style explicitly defined on the element.
+
