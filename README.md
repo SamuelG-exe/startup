@@ -45,4 +45,8 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - Usage: Store user profiles (including salted passwords, unique usernames, instrument etc.), uploaded videos and audio, location data (county/city), and messages.
 
 *WebSocket Data*
-- Usage: Enable real-time messaging between users, updates when new videos or music are uploaded, and post-project ratings of performance.
+- Usage: Enable real-time messaging between users, updates when new videos or music are uploaded (notify when posted for those you follow and if that switch is turned on), and post-project ratings of performance.
+
+
+
+## HTML Base Deliverable:
