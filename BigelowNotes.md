@@ -206,6 +206,11 @@ p {
  font-family: "Rubik Microbe";
 }
 
+*Bold and Italic:*
+
+- font-style: italic;
+- font-weight: bold;
+
 
 *Unicode and UTF-8:*
 
@@ -264,3 +269,23 @@ border-width:10px 1px 5px 20px;
 - group selectors = Separate each selector with a comma
 - Def. position property = static
 
+*Margin:*
+
+- Margin is the space outside an element's border.
+- It controls the spacing between different elements on the page.
+- Margin pushes adjacent elements away to create a gap between them.
+- The element's background color does not extend into the margin area.
+- Margin can have negative values and the auto keyword.
+
+*Padding:*
+
+- Padding is the space between an element's content and its border.
+- It controls the spacing inside an element, around its content.
+- Padding increases the size of the element.
+- The element's background color extends into the padding area.
+- Padding cannot have negative values or use the auto keyword.
+
+Some other key points for differences between *Margin* and *Padding*:
+Adjacent vertical margins collapse, taking the largest margin value, while padding values stack.
+Margin is for positioning an element in relation to others, while padding is for styling the look of an individual element.
+Margins are transparent, while padding takes on the element's background color.
