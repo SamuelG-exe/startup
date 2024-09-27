@@ -101,6 +101,7 @@ For example, you can list the files in a directory, pipe it into grep to search 
 <(open tag) html(attribute) lang="en"(attribute value)>
 </(closing tag) html>
 
+```html
 "<!-- commented text -->"
 
 <html>
@@ -113,6 +114,7 @@ For example, you can list the files in a directory, pipe it into grep to search 
     </main>
   </body>
 </html>
+```
 
 Link References:
 
@@ -189,6 +191,7 @@ In this case, the rules cascade down from the highest nodes in the DOM tree to t
 
 *Different Fonts:*
 
+```html
 @font-face {
  font-family: 'Quicksand';
  src: url('https://cs260.click/fonts/quicksand.ttf');
@@ -205,6 +208,7 @@ OR
 p {
  font-family: "Rubik Microbe";
 }
+```
 
 *Bold and Italic:*
 
@@ -214,6 +218,7 @@ p {
 
 *Unicode and UTF-8:*
 
+```html
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -251,7 +256,7 @@ p {
  OR
  animation: demo 1s infinite alternate;
 }
-
+```
 
 The top border = 10 pixels
 The bottom border = 5 pixels
@@ -341,6 +346,7 @@ grid	= Display this element's children in a grid orientation.
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+```
 
 Example:
 <img width="491" alt="Screenshot 2024-09-27 at 11 22 48 AM" src="https://github.com/user-attachments/assets/c81de5a9-a072-4762-be55-2d2a8381107a">
