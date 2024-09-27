@@ -253,8 +253,6 @@ p {
 }
 
 
-*Padding:*
-
 The top border = 10 pixels
 The bottom border = 5 pixels
 The left border = 20 pixels
@@ -344,6 +342,7 @@ grid	= Display this element's children in a grid orientation.
 }
 
 Example:
+<img width="491" alt="Screenshot 2024-09-27 at 11 22 48 AM" src="https://github.com/user-attachments/assets/c81de5a9-a072-4762-be55-2d2a8381107a">
 
 
 *Float:*
