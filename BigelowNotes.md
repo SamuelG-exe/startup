@@ -165,7 +165,7 @@ iframe = Inline frame of another HTML page
 *The HTML elements that represent media include img, audio, video, svg, and canvas. The img, audio, and video elements are all simple references to an external file, but svg and canvas both contain the code to render a visual image that can even be animated.
 
 
-### 9/23/24:
+### 9/23,25/24:
 
 *CSS Notes:*
 
@@ -182,3 +182,110 @@ iframe = Inline frame of another HTML page
 
 In this case, the rules cascade down from the highest nodes in the DOM tree to the lowest level. Any declaration property defined at a lower level will override the higher declaration. You can see this happening if you use the browser's debugger. In Chrome right click on the element and select inspect. You can then click on each element in the debugger and see what the value of the color property is. For the case defined above you will see that each of the higher level declarations is crossed out until you get to the style explicitly defined on the element.
 
+/* */ = a comment
+
+- <style> tags are used in HTML files
+- to refer to a CSS external file, you need to use the <link rel="stylesheet" type="text/css" href="mystyle.css"> tag to the CSS style sheet in the <head></head> tags
+
+*Different Fonts:*
+
+@font-face {
+ font-family: 'Quicksand';
+ src: url('https://cs260.click/fonts/quicksand.ttf');
+}
+
+p:nth-child(1) { /lets you pick which tag in order that they come/
+ font-family: Quicksand;
+}
+
+OR
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik Microbe&display=swap");
+
+p {
+ font-family: "Rubik Microbe";
+}
+
+*Bold and Italic:*
+
+- font-style: italic;
+- font-weight: bold;
+
+
+*Unicode and UTF-8:*
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+ </head>
+ <body>
+   <p>하나님은 나의 빛이시다</p>
+   <p>😃 &#128521;</p>
+ </body>
+</html>
+
+*Animation:*
+
+@keyframes demo {
+ from {
+   font-size: 0vh;
+ }
+
+ 95% {
+   font-size: 21vh;
+ }
+
+ to {
+   font-size: 20vh;
+ }
+}
+
+
+p {
+ text-align: center;
+ font-size: 20vh;
+
+ animation-name: demo;
+ animation-duration: 3s;
+ OR
+ animation: demo 1s infinite alternate;
+}
+
+
+*Padding:*
+
+The top border = 10 pixels
+The bottom border = 5 pixels
+The left border = 20 pixels
+The right border = 1pixel
+
+border-width:10px 1px 5px 20px;
+
+- text-transform:capitalize  
+- list-style-type: square;  
+- To select element w/ ID "demo", do #demo
+- To select all p elements inside a div element = div p
+- group selectors = Separate each selector with a comma
+- Def. position property = static
+
+*Margin:*
+
+- Margin is the space outside an element's border.
+- It controls the spacing between different elements on the page.
+- Margin pushes adjacent elements away to create a gap between them.
+- The element's background color does not extend into the margin area.
+- Margin can have negative values and the auto keyword.
+
+*Padding:*
+
+- Padding is the space between an element's content and its border.
+- It controls the spacing inside an element, around its content.
+- Padding increases the size of the element.
+- The element's background color extends into the padding area.
+- Padding cannot have negative values or use the auto keyword.
+
+Some other key points for differences between *Margin* and *Padding*:
+Adjacent vertical margins collapse, taking the largest margin value, while padding values stack.
+Margin is for positioning an element in relation to others, while padding is for styling the look of an individual element.
+Margins are transparent, while padding takes on the element's background color.
