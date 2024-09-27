@@ -45,6 +45,7 @@ header {
     align-items: center;
     margin: 0 15px;
     width: 300px;
+    border: 2px solid black;
 }
 
 .Discover-box {
@@ -70,6 +71,7 @@ header {
     justify-content: center;
     align-items: center;
     background-color: lightblue;
+    border-top: 2px solid black;
 }
 
 .filter-container {
