@@ -73,6 +73,6 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - profile.html: User information such as name, about, email, and website is pulled from a database.
 - discover.html: Filters for location, category, and price range are pulled from a database.
 
-*WebSocket data placeholder *
+*WebSocket data placeholder*
 - profile.html: Bell to notify the owner they have someone watching their notifications(follower notification).
 - profile.html: Get real time reviews from page and users.
