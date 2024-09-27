@@ -57,9 +57,18 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - messaging.html: A "Back To Home" link is present, allowing navigation back to the main page (index.html)
 
 *Application textual content*
--index.html: The "Featured Profiles" heading provides relevant textual content.
--profile.html: User information like name, description and content is displayed, serving as relevant textual content.
--login.html: Login form labels and a "Forgot password" link provide necessary textual content.
--discover.html: Filter labels, user names, and content demos serve a textual content.
--about.html: The "About Us" section contains relevant textual content describing the website/company.
--messaging.html: The conversation with the user and the list of contacts.
+- index.html: The "Featured Profiles" heading provides relevant textual content.
+- profile.html: User information like name, description and content is displayed, serving as relevant textual content.
+- login.html: Login form labels and a "Forgot password" link provide necessary textual content.
+- discover.html: Filter labels, user names, and content demos serve a textual content.
+- about.html: The "About Us" section contains relevant textual content describing the website/company.
+- messaging.html: The conversation with the user and the list of contacts.
+
+*Login placeholder, including username display*
+- login.html: The login form includes username and password fields.
+- profile.html: Username is displayed.
+
+*Database data placeholder*
+- index.html: Featured profiles are pulled from a database based on the user's IP address.
+- profile.html: User information such as name, about, email, and website is pulled from a database.
+- discover.html: Filters for location, category, and price range are pulled from a database.
