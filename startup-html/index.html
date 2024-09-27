@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="basepage.css" /> 
+    <link rel="stylesheet" href="indexstyles.css" />
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Basic HTML Page with Logo</title> 
@@ -14,7 +16,7 @@
         <!-- Logo placeholder -->
         <img src=".\temp_logo.png" alt="Logo">
         <div style="text-align: right; padding: 10px;">
-            <a href="login.html" style="text-decoration: none; color: blue;">Login</a>
+            <a href="login.html" style="text-decoration: none; color: rgb(106, 0, 255);">Login</a>
             <a href="index.html" style="margin-left: 10px;"><i class="fas fa-home fa-3x"></i></a>
             <a href="discover.html" style="margin-left: 10px;"><i class="fas fa-search fa-3x"></i></a>
             <a href="profile.html" style="margin-left: 10px;"><i class="fas fa-user fa-3x"></i></a>
@@ -22,23 +24,65 @@
         </div>
     </header>
     
-    <div style="width: 100%; height: 200px; background-color: #f0f0f0; margin-bottom: 20px;">
+    <div style="width: 100%; height: 300px; background-color: #f0f0f0; margin-bottom: 10px; border: 1px solid black;">
         <!-- Video placeholder -->
-        <p style="text-align: center; padding-top: 90px;">Video goes here</p>
+        <p style="text-align: center; padding-top: 130px;">Video goes here</p>
     </div>
+
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="font-size: 48px;">make creativity collaborative</h1>
+    </div>
+    
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button style="padding: 20px 40px; font-size: 18px;">Discover</button>
+    </div>
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+        <select style="margin-right: 10px;">
+            <option>Music</option>
+            <option>Video</option>
+            <option>Photography</option>
+        </select>
+        <input type="text" placeholder="Enter your city" style="margin-right: 10px;">
+        <a href="discover.html"><i class="fas fa-search fa-3x" style="color: black;""></i></a>
+    </div>
+    
+
 
 
 
 
 
     <main>
-        <h1>make creativity collaborative</h1>
-        <p>This is a simple web page using basic HTML elements.</p>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-        </ul>
+        <div style="border: 1px solid black; padding: 10px; margin-bottom: 20px;">
+            <p>Featured Profiles (grab off user's IP Address, pull content from queried most followed users in database)</p>
+        </div>
+    
+        <div style="display: flex; justify-content: space-between; margin-bottom: 40px;">
+            <div class="profile-box">
+                <div class="profile-slideshow">content slideshow placeholder</div>
+                <div class="profile-info">
+                    <i class="fas fa-user fa-2x"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+            <div class="profile-box">
+                <div class="profile-slideshow">content slideshow placeholder</div>
+                <div class="profile-info">
+                    <i class="fas fa-user fa-2x"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+            <div class="profile-box">
+                <div class="profile-slideshow">content slideshow placeholder</div>
+                <div class="profile-info">
+                    <i class="fas fa-user fa-2x"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </div>
+
+
     </main>
 
 

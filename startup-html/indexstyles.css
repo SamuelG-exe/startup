@@ -1,0 +1,31 @@
+.profile-box {
+    border: 1px solid black;
+    width: 30%;
+    height: 400px;
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+    margin-bottom: 40px;
+}
+
+.profile-slideshow {
+    border-bottom: 1px solid black;
+    height: 70%;
+    text-align: center;
+    padding-top: 150px;
+}
+
+.profile-info {
+    height: 30%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.profile-info i {
+    margin-right: 10px;
+}
+
+.profile-info span {
+    font-size: 24px;
+}
