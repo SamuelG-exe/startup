@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="basepage.css" />
+    <link rel="stylesheet" href="aboutstyles.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic HTML Page with Logo</title>
 </head>
 <body>
 
     <header>
         <!-- Logo placeholder -->
         <img src=".\temp_logo.png" alt="Logo">
-        <h1>About Us</h1>
     </header>
 
 
@@ -23,14 +22,18 @@
 
 
     <main>
-        <p>This is a simple web page using basic HTML elements.</p>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-        </ul>
+        <h1>About Us</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel malesuada sapien. Fusce euismod, nulla sit amet aliquam lacinia, nisl nisl aliquam nisl, nec aliquam nisl nisl sit amet nisl.</p>
     </main>
-
+    <div class="contact-form">
+        <h2>Contact Us!</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" placeholder="Your Message" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
 
 
 

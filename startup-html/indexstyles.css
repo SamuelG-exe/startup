@@ -1,0 +1,36 @@
+.profile-box {
+    border: 1px solid black;
+    width: 30%;
+    height: 400px;
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+    margin-bottom: 40px;
+}
+
+.profile-slideshow {
+    border: 1px solid black;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.profile-info {
+    position: absolute;
+    border-top: 1px solid black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-info i {
+    margin-right: 10px;
+}
+
+.profile-info span {
+    font-size: 24px;
+}
