@@ -10,7 +10,7 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 
 
 **Key Features:**
--[x] Content posting with highlighted/pinned content to introduce their page
+- Content posting with highlighted/pinned content to introduce their page
 - Personalized Pages
 - Location Filtering
 - Instrument Filtering, Project Type Filtering
