@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="basepage.css" />
     <link rel="stylesheet" href="discover.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,28 +26,66 @@
     <main>
             <div class="Discover-Main">
                 <div class="Discover-left-sidebar">
-                    <label for="dropdown">Filters:
-
-                    </label>
-                    <select id="Discover-dropdown" name="Discover-dropdown">
-                        <option value="Discover-option1">Option 1</option>
-                        <option value="Discover-option2">Option 2</option>
-                        <option value="Discover-option3">Option 3</option>
-                    </select>
+                    <div class="filter-container">
+                        <h3>Filters</h3>
+                        <div class="filter-item">
+                            <button class="filter-button">Location</button>
+                            <div class="sub-options">
+                                <label for="location">Enter Location:</label>
+                                <input type="text" id="location" name="location" required>
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <button class="filter-button">Category</button>
+                            <div class="sub-options">
+                                <select id="category" name="category">
+                                    <option value="option1">Option 1</option>
+                                    <option value="option2">Option 2</option>
+                                    <option value="option3">Option 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <button class="filter-button">Price Range</button>
+                            <div class="sub-options">
+                                <select id="price-range" name="price-range">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
         
                 <div class="Discover-main-content">
-                    <div class="Discover-box-container">
-                        <div class="Discover-box">Box 1</div>
-                        <div class="Discover-box-user">User 1</div>
+                    <div class="Discover-row">
+                        <div class="Discover-box-container">
+                            <div class="Discover-box"><img alt="stock wedding" src="https://media.istockphoto.com/id/1269895440/photo/man-playing-guitar-and-woman-holding-clapperboard-couple-of-musicians-recording-video-blog-or.jpg?s=2048x2048&w=is&k=20&c=_NQbk9f3ZLyhCYfD8gbWikZhWGS8yECffvB0e-u2qzo=" ></div>
+                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 1</div>
+                        </div>
+                        <div class="Discover-box-container">
+                            <div class="Discover-box">Box 2</div>
+                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 2</i></div>
+                        </div>
+                        <div class="Discover-box-container">
+                            <div class="Discover-box">Box 3</div>
+                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 3</div>
+                        </div>
                     </div>
-                    <div class="Discover-box-container">
-                        <div class="Discover-box">Box 2</div>
-                        <div class="Discover-box-user">User 2</div>
-                    </div>
-                    <div class="Discover-box-container">
-                        <div class="Discover-box">Box 3</div>
-                        <div class="Discover-box-user">User 3</div>
+                    <div class="Discover-row">
+                        <div class="Discover-box-container">
+                            <div class="Discover-box">Box 4</div>
+                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 4</div>
+                        </div>
+                        <div class="Discover-box-container">
+                            <div class="Discover-box">Box 5</div>
+                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 5</div>
+                        </div>
+                        <div class="Discover-box-container">
+                            <div class="Discover-box">Box 6</div>
+                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 6</div>
+                        </div>
                     </div>
                 </div>
     </main>
