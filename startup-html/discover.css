@@ -1,26 +1,21 @@
 
-.Discover-Main {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.Discover-left-sidebar {
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
 .Discover-main-content {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 0 400px;
+}
+
+.Discover-box-container {
     display: flex;
-    justify-content: center;
-    flex-grow: 1;
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0 15px; 
 }
 
 .Discover-box {
-    width: 150px;
-    height: 150px;
-    margin: 0 15px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 0; 
     background-color: lightblue;
     display: flex;
     justify-content: center;
@@ -30,6 +25,28 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+.Discover-box-user {
+    width: 200px;
+    height: 50px;
+    margin-top: 0; 
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.Discover-left-sidebar {
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
 
 #Discover-dropdown {
     width: 150px;
