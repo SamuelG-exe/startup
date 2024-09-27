@@ -1,3 +1,7 @@
+header {
+    height: 380px;
+}
+
 .Discover-container {
     display: flex;
     height: 100vh;
