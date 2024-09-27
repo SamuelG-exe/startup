@@ -72,7 +72,6 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - index.html: Featured profiles are pulled from a database based on the user's IP address.
 - profile.html: User information such as name, about, email, and website is pulled from a database.
 - discover.html: Filters for location, category, and price range are pulled from a database.
-<<<<<<< HEAD
 
 *WebSocket data placeholder *
 - profile.html: Bell to notify the owner they have someone watching their notifications(follower notification).
