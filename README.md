@@ -77,5 +77,3 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 *WebSocket data placeholder *
 - profile.html: Bell to notify the owner they have someone watching their notifications(follower notification).
 - profile.html: Get real time reviews from page and users.
-=======
->>>>>>> c537a73d1c009e23fd21e44ca1012a7b210e52f1
