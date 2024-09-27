@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="basepage.css" />
     <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +12,14 @@
 <body>
 
     <header>
-        <!-- Logo placeholder -->
         <img src=".\temp_logo.png" alt="Logo">
-        <h1>Welcome to My Basic HTML Page</h1>
+        <div style="text-align: right; padding: 10px;">
+            <a href="login.html" style="text-decoration: none; color: rgb(106, 0, 255); background-color: lightgrey; padding: 5px;">Login</a>
+            <a href="index.html" style="margin-left: 10px;"><i class="fas fa-home fa-3x"></i></a>
+            <a href="discover.html" style="margin-left: 10px;"><i class="fas fa-search fa-3x"></i></a>
+            <a href="profile.html" style="margin-left: 10px;"><i class="fas fa-user fa-3x"></i></a>
+            <a href="messaging.html" style="margin-left: 10px;"><i class="fas fa-comment fa-3x"></i></a>
+        </div>
     </header>
 
 
@@ -21,6 +28,10 @@
             <div class="image-box">
                 <h2 class="username">User Name</h2>
                 <img src="https://via.placeholder.com/150" alt="User Image">
+                <div class="reviews-box">
+                    <p>Reviews/Stars 
+                    (database/websocket)</p>
+                </div>
             </div>
             <div class="description-box">
                 <div class="about-box">
@@ -28,21 +39,36 @@
                     <p>This is a brief about the user. They are interested in various topics and have a unique background.</p>
                 </div>
                 <div class="contact-details">
-                    <p>Email: user@example.com</p>
-                    <p>Website: www.example.com</p>
-                    <p>Message: [User Message]</p>
+                    <div class="contact-item">
+                        <p>Email:</p>
+                        <p>user@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <p>Website:</p>
+                        <p>www.example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <p>Message:</p>
+                        <p>[User Message]</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="featured-content">
             <h2>Featured Content</h2>
         </div>
-        <div class="content-box-container">
-            <div class="content-box">Content Area 1</div>
-            <div class="content-box">Content Area 2</div>
-            <div class="content-box">Content Area 3</div>
+        <div class="featured-content-container">
+            <div class="content-box-container">
+                <div class="content-box">Content Area 1</div>
+                <div class="content-box">Content Area 2</div>
+                <div class="content-box">Content Area 3</div>
+            </div>
+            <div class="content-box-container">
+                <div class="content-box">Content Area 4</div>
+                <div class="content-box">Content Area 5</div>
+                <div class="content-box">Content Area 6</div>
+            </div>
         </div>
-
     
     <footer>
         <p><a href="index.html">Home</a> • <a href="discover.html">Discover</a> • <a href="about.html">About</a></p>
