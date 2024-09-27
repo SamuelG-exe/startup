@@ -9,17 +9,22 @@
 }
 
 .profile-slideshow {
-    border-bottom: 1px solid black;
-    height: 70%;
+    border: 1px solid black;
+    height: 100%;
     text-align: center;
-    padding-top: 150px;
+    position: relative;
 }
 
 .profile-info {
-    height: 30%;
+    position: absolute;
+    border: 1px solid black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 12px;
     display: flex;
     align-items: center;
-    padding-left: 10px;
 }
 
 .profile-info i {
