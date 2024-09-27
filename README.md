@@ -51,10 +51,10 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 
 ## HTML Base Deliverable:
 *Links between pages*
--index.html: Links to profile pages of featured users and all oth pages through nav bar.
--profile.html: Link back to main page (index.html) or other relevant pages
--discover.html: Each user box links to their respective profile page
--messaging.html: A "Back To Home" link is present, allowing navigation back to the main page (index.html)
+- index.html: Links to profile pages of featured users and all oth pages through nav bar.
+- profile.html: Link back to main page (index.html) or other relevant pages
+- discover.html: Each user box links to their respective profile page
+- messaging.html: A "Back To Home" link is present, allowing navigation back to the main page (index.html)
 
 *Application textual content*
 -index.html: The "Featured Profiles" heading provides relevant textual content.
