@@ -302,10 +302,11 @@ grid	= Display this element's children in a grid orientation.
 
 - We can demonstrate the different CSS display property values with the following HTML that contains a bunch of div elements. By default div elements have a display property value of block.
 
+```html
 <div class="none">None</div>
 <div class="block">Block</div>
 <div class="inline">Inline1</div>
-<div class="inline">Inline2</div>
+<div class="inline">Inline2</div>```
 <div class="flex">
   <div>FlexA</div>
   <div>FlexB</div>
