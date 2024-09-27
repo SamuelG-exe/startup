@@ -51,7 +51,15 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 
 ## HTML Base Deliverable:
 *Links between pages*
--index.html: Links to profile pages of featured users
+-index.html: Links to profile pages of featured users and all oth pages through nav bar.
 -profile.html: Link back to main page (index.html) or other relevant pages
 -discover.html: Each user box links to their respective profile page
 -messaging.html: A "Back To Home" link is present, allowing navigation back to the main page (index.html)
+
+*Application textual content*
+-index.html: The "Featured Profiles" heading provides relevant textual content.
+-profile.html: User information like name, description and content is displayed, serving as relevant textual content.
+-login.html: Login form labels and a "Forgot password" link provide necessary textual content.
+-discover.html: Filter labels, user names, and content demos serve a textual content.
+-about.html: The "About Us" section contains relevant textual content describing the website/company.
+-messaging.html: The conversation with the user and the list of contacts.
