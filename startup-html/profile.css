@@ -1,4 +1,5 @@
 .profile-container {
+    margin-left: auto;
     display: flex;
     align-items: flex-start;
     margin-bottom: 20px;
@@ -38,7 +39,7 @@
 .about-box {
     background-color: #2d2a2a21;
     margin-top: 70px;
-
+    
     padding: 15px;
     margin-bottom: 10px;
     text-align: center;
