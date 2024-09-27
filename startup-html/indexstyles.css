@@ -17,7 +17,7 @@
 
 .profile-info {
     position: absolute;
-    border: 1px solid black;
+    border-top: 1px solid black;
     bottom: 0;
     left: 0;
     right: 0;
