@@ -1,20 +1,17 @@
 .Discover-container {
     display: flex;
-    height: 100vh;
   }
   
   .Discover-left-sidebar {
     width: 250px;
     padding: 20px;
-    background-color: #333;
-    color: #fff;
-    overflow-y: auto;
+    background-color: #ffffff;
+    color: #000000;
   }
   
   .Discover-main-content {
     flex: 1;
     padding: 20px;
-    overflow-y: auto;
   }
   
   .Discover-right-sidebar {
@@ -25,7 +22,6 @@
     position: sticky;
     top: 0;
     height: 30vh;
-    overflow-y: auto;
   }
   
   .Discover-search {
