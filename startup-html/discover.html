@@ -14,93 +14,117 @@
 <body>
 
 
-    <header>
-        <img src=".\temp_logo.png" alt="Logo">
-        <h1>Discover</h1>
-        <div style="text-align: right; padding: 10px;">
-            <a href="index.html" style="margin-left: 10px;"><i class="fas fa-home fa-3x"></i></a>
-            <a href="discover.html" style="margin-left: 10px;"><i class="fas fa-search fa-3x"></i></a>
-            <a href="profile.html" style="margin-left: 10px;"><i class="fas fa-user fa-3x"></i></a>
-            <a href="messaging.html" style="margin-left: 10px;"><i class="fas fa-comment fa-3x"></i></a>
+    <header style="text-align: center;">
+        <img src="./temp_logo.png" alt="Logo" style="display: block; margin: 0 auto; padding-bottom: 10px;">
+        
+        <div style="display: flex; align-items: center; position: relative;">
+            <div style="flex: 1; position: absolute; left: 50%; transform: translateX(-50%);">
+                <span style="color: white; padding-bottom: 10px; font-size: 24px;">DISCOVER</span>
+            </div>
+    
+            <div style="margin-left: auto; margin-right: 1%; display: flex; align-items: center;">
+                <a href="index.html" style="margin-left: 10px;"><i class="fas fa-home fa-3x"></i></a>
+                <a href="discover.html" style="margin-left: 10px;"><i class="fas fa-search fa-3x"></i></a>
+                <a href="profile.html" style="margin-left: 10px;"><i class="fas fa-user fa-3x"></i></a>
+                <a href="messaging.html" style="margin-left: 10px;"><i class="fas fa-comment fa-3x"></i></a>
+            </div>
         </div>
     </header>
+    
 
 
 
 
 
     <main>
-            <div class="Discover-Main">
-                <header-search>
-                    <div class="Discover-search">
-                        <h2>Filters</h2>
-                        <h2>Filters</h2>
-                        <h2>Filters</h2>
-                      </div>
-                </header-search>
-                <div class="Discover-left-sidebar">
-                    <div class="filter-container">
-                        <h3>Filters</h3>
-                        <div class="filter-item">
-                            <button class="filter-button">Location</button>
-                            <div class="sub-options">
-                                <label for="location">Enter Location:</label>
-                                <input type="text" id="location" name="location" required>
-                            </div>
-                        </div>
-                        <div class="filter-item">
-                            <button class="filter-button">Category</button>
-                            <div class="sub-options">
-                                <select id="category" name="category">
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="filter-item">
-                            <button class="filter-button">Price Range</button>
-                            <div class="sub-options">
-                                <select id="price-range" name="price-range">
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+        <div class="Discover-container">
+            <div class="Discover-left-sidebar">
+              <h2>Filters</h2>
+              <div class="filter-container">
+                <div class="filter-item">
+                  <button class="filter-button">Location</button>
+                  <div class="sub-options">
+                    <label for="location">Enter Location:</label>
+                    <input type="text" id="location" name="location">
+                  </div>
                 </div>
-        
-                <div class="Discover-main-content">
-                    <div class="Discover-row">
-                        <div class="Discover-box-container">
-                            <div class="Discover-box"><img alt="stock wedding" src="https://media.istockphoto.com/id/1269895440/photo/man-playing-guitar-and-woman-holding-clapperboard-couple-of-musicians-recording-video-blog-or.jpg?s=2048x2048&w=is&k=20&c=_NQbk9f3ZLyhCYfD8gbWikZhWGS8yECffvB0e-u2qzo=" ></div>
-                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 1</div>
-                        </div>
-                        <div class="Discover-box-container">
-                            <div class="Discover-box">Box 2</div>
-                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 2</i></div>
-                        </div>
-                        <div class="Discover-box-container">
-                            <div class="Discover-box">Box 3</div>
-                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 3</div>
-                        </div>
-                    </div>
-                    <div class="Discover-row">
-                        <div class="Discover-box-container">
-                            <div class="Discover-box">Box 4</div>
-                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 4</div>
-                        </div>
-                        <div class="Discover-box-container">
-                            <div class="Discover-box">Box 5</div>
-                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 5</div>
-                        </div>
-                        <div class="Discover-box-container">
-                            <div class="Discover-box">Box 6</div>
-                            <div class="Discover-box-user"><i class="fas fa-user fa-3x"></i>User 6</div>
-                        </div>
-                    </div>
+                <div class="filter-item">
+                  <button class="filter-button">Category</button>
+                  <div class="sub-options">
+                    <label><input type="checkbox"> Option 1</label>
+                    <label><input type="checkbox"> Option 2</label>
+                    <label><input type="checkbox"> Option 3</label>
+                  </div>
                 </div>
+                <div class="filter-item">
+                  <button class="filter-button">Price Range</button>
+                  <div class="sub-options">
+                    <label><input type="checkbox"> Low</label>
+                    <label><input type="checkbox"> Medium</label>
+                    <label><input type="checkbox"> High</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="Discover-main-content">
+              <div class="Discover-search"  >
+                <h2>Music</h2>
+                <h2>Video</h2>
+                <h2>Photo</h2>
+              </div>
+              
+              <div class="Discover-grid">
+                <div class="Discover-box-container">
+                  <div class="Discover-box">
+                    <img src="box1.jpg" alt="Box 1">
+                  </div>
+                  <div class="Discover-box-user">User 1</div>
+                </div>
+                <div class="Discover-box-container">
+                    <div class="Discover-box">
+                      <img src="box1.jpg" alt="Box 1">
+                    </div>
+                    <div class="Discover-box-user">User 1</div>
+                  </div>
+                  <div class="Discover-box-container">
+                    <div class="Discover-box">
+                      <img src="box1.jpg" alt="Box 1">
+                    </div>
+                    <div class="Discover-box-user">User 1</div>
+                  </div>
+                  <div class="Discover-box-container">
+                    <div class="Discover-box">
+                      <img src="box1.jpg" alt="Box 1">
+                    </div>
+                    <div class="Discover-box-user">User 1</div>
+                  </div>
+                  <div class="Discover-box-container">
+                    <div class="Discover-box">
+                      <img src="box1.jpg" alt="Box 1">
+                    </div>
+                    <div class="Discover-box-user">User 1</div>
+                  </div>
+                  <div class="Discover-box-container">
+                    <div class="Discover-box">
+                      <img src="box1.jpg" alt="Box 1">
+                    </div>
+                    <div class="Discover-box-user">User 1</div>
+                  </div>
+                  
+                  
+                <!-- Repeat the Discover-box-container for other boxes -->
+              </div>
+            </div>
+            <div class="Discover-right-sidebar">
+                <h2>Events  (we are using an api call for this)</h2>
+                <ul class="event-list">
+                  <li>Event 1 <span class="attendees-count">10 users</span></li>
+                  <li>Event 2 <span class="attendees-count">5 users</span></li>
+                  <li>Event 3 <span class="attendees-count">8 users</span></li>
+                </ul>
+              </div>
+          </div>
     </main>
 
 
