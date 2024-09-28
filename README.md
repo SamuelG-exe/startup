@@ -79,3 +79,4 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 
 *API/3rd-Party Call placeholder*
 - discover.html: API call to display local music events based off IP Address or provided address and pulled from Ticketmaster
+- profile.html: API call to PlaceSearch or PlaceDetails (made by Google) for ind. user profile ratings
