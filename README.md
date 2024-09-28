@@ -76,3 +76,6 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 *WebSocket data placeholder*
 - profile.html: Bell to notify the owner they have someone watching their notifications(follower notification).
 - profile.html: Get real time reviews from page and users.
+
+*API/3rd-Party Call placeholder*
+- discover.html: API call to display local music events based off IP Address or provided address and pulled from Ticketmaster
