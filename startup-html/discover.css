@@ -54,7 +54,7 @@
   }
   
   .Discover-box {
-    height: 250px;
+    min-height: 50px ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +69,7 @@
   }
   
   .Discover-box-user {
-    height: 50px;
+    min-height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
