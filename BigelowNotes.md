@@ -521,3 +521,27 @@ person.firstName + " is " + person.age + " years old.";
 </body>
 </html>
 ```
+
+
+*JavaScript Functions:*
+
+- Can be passed as parameters
+- Anything nonzero is True, anything 0/empty is False
+- having a function `start(fn)` with the param. `fn`, if we didn't give a param., then
+- `fn = fn || variables` and if `fn` wasn't given/defined, it will default to the first 'true' value (could be ternary w/ just 2, or mult. with ||)
+- Use `===` for true equality
+- For anonymous functions i.e. lambdas, use the keyword `function` or `const arrowMethod = (param) => {return a+2;};` that can be void, return a value, and take any # of arguments
+- To turn a variable into an active function, use the variable name + () w/ or w/o parameters
+- If you return an arrow function w/ a function, you can string the parameters together
+
+```java
+dup(duplimit){
+  return (t) => {
+    ...
+    //uses both duplimit and t
+  }
+}
+
+dup(3)('again');
+// 3 is passed in first for duplimit and then 'again' for 3
+```
