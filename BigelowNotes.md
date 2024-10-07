@@ -578,3 +578,126 @@ a.push(4);
 console.log(a.length);
 // OUTPUT: 4
 ```
+
+*JavaScript Regular Expressions:*
+
+`/pattern/modifiers;`
+- ex) /w3schools/i;
+
+Modifiers:
+
+- i	Perform case-insensitive matching	
+- g	Perform a global match (find all)	
+- m	Perform multiline matching	
+- d	Perform start and end matching (New in ES2022)
+
+**Regular Expression Patterns:**
+
+Brackets are used to find a range of characters:
+
+- [abc]	Find any of the characters between the brackets	
+- [0-9]	Find any of the digits between the brackets	
+- (x|y)	Find any of the alternatives separated with |	
+- Metacharacters are characters with a special meaning:
+
+Metacharacters:
+
+- \d	Find a digit	
+- \s	Find a whitespace character	
+- \b	Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b	
+- \uxxxx	Find the Unicode character specified by the hexadecimal number xxxx	
+
+Quantifiers define quantities:
+
+- n+	Matches any string that contains at least one n
+- n*	Matches any string that contains zero or more occurrences of n
+- n?	Matches any string that contains zero or one occurrences of n
+
+
+*`.search()` and `.replace()`*
+
+```java
+let text = "Visit W3Schools!";
+let n = text.search("W3Schools");
+// OUTPUT for n = index pos. of pattern found start
+
+let text = "Visit Microsoft!";
+let result = text.replace("Microsoft", "W3Schools");
+```
+
+*Other JavaScript Built-In Syntax:*
+
+**Rest**
+
+- JavaScript provides the rest syntax to make this easier. Think of it as a parameter that contains the rest of the parameters. To turn the last parameter of any function into a rest parameter you prefix it with three periods. You can then call it with any number of parameters and they are all automatically combined into an array.
+
+```java
+function hasNumber(test, ...numbers) {
+  return numbers.some((i) => i === test);
+}
+
+hasNumber(2, 1, 2, 3);
+// RETURNS: true
+```
+
+**Spread**
+
+- Spread does the opposite of rest. It take an object that is iterable (e.g. array or string) and expands it into a function's parameters. Consider the following.
+
+```java
+function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+}
+
+const p = person(...['Ryan', 'Dahl']);
+console.log(p);
+// OUTPUT: {first: 'Ryan', last: 'Dahl'}
+```
+
+*JavaScript Try/Catch/Finally:*
+
+```java
+try {
+  // normal execution code
+} catch (err) {
+  // exception handling code
+} finally {
+  // always called code
+}
+```
+
+- The fallback pattern is commonly implemented using exception handling. To implement the fallback pattern you put the normal feature path in a try block and then provide a fallback implementation in the catch block. For example, normally you would get the high scores for a game by making a network request, but if the network is not available then a locally cached version of the last available scores is used. By providing a fallback, you can always return something, even if the desired feature is temporarily unavailable.
+
+```java
+function getScores() {
+  try {
+    const scores = scoringService.getScores();
+    // store the scores so that we can use them later if the network is not available
+    window.localStorage.setItem('scores', scores);
+    return scores;
+  } catch {
+    return window.localStorage.getItem('scores');
+  }
+}
+```
+
+*JavaScript Destructuring:*
+
+```java
+const a = [1, 2, 4, 5];
+
+// destructure the first two items from a, into the new variables b and c
+const [b, c] = a;
+
+console.log(b, c);
+// OUTPUT: 1, 2
+```
+
+and
+
+```java
+const [b, c, ...others] = a;
+
+console.log(b, c, others);
+// OUTPUT: 1, 2, [4,5]
+```
