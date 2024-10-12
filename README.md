@@ -80,3 +80,16 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 *API/3rd-Party Call placeholder*
 - discover.html: API call to display local music events based off IP Address or provided address and pulled from Ticketmaster
 - profile.html: API call to PlaceSearch or PlaceDetails (made by Google) for ind. user profile ratings
+
+
+## CSS Base Deliverable (10/12/24):
+*Header, Footer, Main Content, and Navbar*
+- (all html pages excluding messaging [unique purpose]) We implemented a consistent header (w/ our website logo at the top), along with a navbar of repeated, clear icons to each page of the website (The login page is not yet functional, so the "Forgot your password?" hyperlink is back to the homepage to continue browsing) 
+- (all html pages excluding messaging) We include a consistent footer displaying our names along with our GitHub and version count, this being version 2.0.0
+
+*Responsive to Resizing/Minimizing*
+- index.html, discover.html, profile.html: We incorporated grids and flexboxes for these pages to accomodate window resizing and reorder the row elements into column once decreased to a certain min. width, maintaining necessary visibility of the elements without crowding
+
+*Application Elements, Text Content, and Images*
+- (all html pages) Our notation still points out the key features of Freel, along with the usage of API calls, WebSocket communication, and database pulls and representations. We have text showing the role and purpose of our product and each divided page (profile page with a bio, discover page with selected filters, etc.)
+- index.html, discover.html, profile.html: We included royalty-free images and even a video to help establish the vibe we want for our website *and* showcase the 3 main categories of content our users can create/share and also find/follow, namely: Music, Photography, Videography
