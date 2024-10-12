@@ -12,6 +12,9 @@
   .Discover-main-content {
     flex: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .Discover-right-sidebar {
@@ -38,13 +41,16 @@
     background-color: #f1f1f1;
     border: 1px solid black;
     padding: 10px;
-    margin: 0;
+    margin: 0 10px;
   }
   
   .Discover-grid {
     display: grid;
+    justify-content: space-between;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+    width: 100%;
+
   }
   
   .Discover-box-container {
@@ -54,7 +60,8 @@
   }
   
   .Discover-box {
-    min-height: 50px ;
+    min-height: 100px ;
+    min-width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +76,7 @@
   }
   
   .Discover-box-user {
-    min-height: 50px;
+    min-height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,3 +133,26 @@
     font-size: 12px;
     color: #666;
   }
+
+@media (max-width: 1024px) {
+  .Discover-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .Discover-grid {
+      grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .Discover-search {
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+}
+@media (max-width: 768px) {
+  .Discover-right-sidebar {
+    display: none;
+  }
+}
