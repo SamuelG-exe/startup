@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="basepage.css" />
     <link rel="stylesheet" href="discover.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+    
 
 
     <meta charset="UTF-8">
@@ -23,7 +24,6 @@
             </div>
     
             <div style="margin-left: auto; margin-right: 1%; display: flex; align-items: center;">
-                <a href="login.html" style="text-decoration: none; color: rgb(106, 0, 255); background-color: lightgrey; padding: 5px;">Login</a>
                 <a href="index.html" style="margin-left: 10px;"><i class="fas fa-home fa-3x"></i></a>
                 <a href="discover.html" style="margin-left: 10px;"><i class="fas fa-search fa-3x"></i></a>
                 <a href="profile.html" style="margin-left: 10px;"><i class="fas fa-user fa-3x"></i></a>
@@ -38,9 +38,9 @@
 
 
     <main>
-        <div class="Discover-container">
-            <div class="Discover-left-sidebar">
-              <h2>Filters</h2>
+      <div class="Discover-container">
+        <div class="Discover-left-sidebar">
+            <h2>Filters</h2>
               <div class="filter-container">
                 <div class="filter-item">
                   <button class="filter-button">Location</button>
@@ -66,9 +66,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div class="Discover-main-content">
+          </div>
+        <div class="Discover-main-content">
               <div class="Discover-search"  >
                 <h2>Music</h2>
                 <h2>Video</h2>
@@ -77,70 +76,71 @@
               
               <div class="Discover-grid">
                 <div class="Discover-box-container">
-                  <div class="Discover-box">
-                    <img src="box1.jpg" alt="Box 1">
-                  </div>
-                  <div class="Discover-box-user">User 1</div>
+                    <div class="profile-box">
+                        <div class="profile-slideshow">
+                            <img src="./stockphotos/makingmusic.jpg" alt="music">
+                            <div class="profile-info">
+                                <i class="fas fa-user fa-2x"></i>
+                                <span>Profile</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
-                    </div>
-                    <div class="Discover-box-user">User 1</div>
+                  <div class="profile-box">
+                      <div class="profile-slideshow">
+                          <img src="./stockphotos/makingmusic.jpg" alt="music">
+                          <div class="profile-info">
+                              <i class="fas fa-user fa-2x"></i>
+                              <span>Profile</span>
+                          </div>
+                      </div>
                   </div>
-                  <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
+                </div>
+                <div class="Discover-box-container">
+                <div class="profile-box">
+                    <div class="profile-slideshow">
+                        <img src="./stockphotos/makingmusic.jpg" alt="music">
+                        <div class="profile-info">
+                            <i class="fas fa-user fa-2x"></i>
+                            <span>Profile</span>
+                        </div>
                     </div>
-                    <div class="Discover-box-user">User 1</div>
+                </div>
+                </div>
+                <div class="Discover-box-container">
+              <div class="profile-box">
+                  <div class="profile-slideshow">
+                      <img src="./stockphotos/makingmusic.jpg" alt="music">
+                      <div class="profile-info">
+                          <i class="fas fa-user fa-2x"></i>
+                          <span>Profile</span>
+                      </div>
                   </div>
-                  <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
-                    </div>
-                    <div class="Discover-box-user">User 1</div>
-                  </div>
-                  <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
-                    </div>
-                    <div class="Discover-box-user">User 1</div>
-                  </div>
-                  <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
-                    </div>
-                    <div class="Discover-box-user">User 1</div>
-                  </div>
-                  <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
-                    </div>
-                    <div class="Discover-box-user">User 1</div>
-                  </div>
-                  <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
-                    </div>
-                    <div class="Discover-box-user">User 1</div>
-                  </div>
-                  <div class="Discover-box-container">
-                    <div class="Discover-box">
-                      <img src="box1.jpg" alt="Box 1">
-                    </div>
-                    <div class="Discover-box-user">User 1</div>
-                  </div>                  
               </div>
+                </div>
+                <div class="Discover-box-container">
+            <div class="profile-box">
+                <div class="profile-slideshow">
+                    <img src="./stockphotos/makingmusic.jpg" alt="music">
+                    <div class="profile-info">
+                        <i class="fas fa-user fa-2x"></i>
+                        <span>Profile</span>
+                    </div>
+                </div>
             </div>
-            <div class="Discover-right-sidebar">
+                </div>
+              </div>
+          </div>
+        <div class="Discover-right-sidebar">
                 <h2>Events  (we are using an api call for this)</h2>
                 <ul class="event-list">
                   <li>Event 1 <span class="attendees-count">10 users</span></li>
                   <li>Event 2 <span class="attendees-count">5 users</span></li>
                   <li>Event 3 <span class="attendees-count">8 users</span></li>
                 </ul>
-              </div>
           </div>
+    </div>
     </main>
 
 
