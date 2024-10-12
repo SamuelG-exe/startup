@@ -521,3 +521,183 @@ person.firstName + " is " + person.age + " years old.";
 </body>
 </html>
 ```
+
+
+*JavaScript Functions:*
+
+- Can be passed as parameters
+- Anything nonzero is True, anything 0/empty is False
+- having a function `start(fn)` with the param. `fn`, if we didn't give a param., then
+- `fn = fn || variables` and if `fn` wasn't given/defined, it will default to the first 'true' value (could be ternary w/ just 2, or mult. with ||)
+- Use `===` for true equality
+- For anonymous functions i.e. lambdas, use the keyword `function` or `const arrowMethod = (param) => {return a+2;};` that can be void, return a value, and take any # of arguments
+- To turn a variable into an active function, use the variable name + () w/ or w/o parameters
+- If you return an arrow function w/ a function, you can string the parameters together
+
+```java
+dup(duplimit){
+  return (t) => {
+    ...
+    //uses both duplimit and t
+  }
+}
+
+dup(3)('again');
+// 3 is passed in first for duplimit and then 'again' for 3
+```
+
+*JavaScript Arrays:*
+
+The Array object has several interesting static functions associated with it. Here are some of the interesting ones.
+
+Function	Meaning	Example
+- push	Add an item to the end of the array	a.push(4)
+- pop	Remove an item from the end of the array	x = a.pop()
+- slice	Return a sub-array	a.slice(1,-1)
+- sort	Run a function to sort an array in place	a.sort((a,b) => b-a)
+- values	Creates an iterator for use with a for of loop	for (i of a.values()) {...}
+- find	Find the first item satisfied by a test function	a.find(i => i < 2)
+- forEach	Run a function on each array item	a.forEach(console.log)
+- reduce	Run a function to reduce each array item to a single item	a.reduce((a, c) => a + c)
+- map	Run a function to map an array to a new array	a.map(i => i+i)
+- filter	Run a function to remove items	a.filter(i => i%2)
+- every	Run a function to test if all items match	a.every(i => i < 3)
+- some	Run a function to test if any items match	a.some(i => i < 1)
+
+```java
+const a = [1, 2, 3];
+
+console.log(a.map((i) => i + i));
+// OUTPUT: [2,4,6]
+console.log(a.reduce((v1, v2) => v1 + v2));
+// OUTPUT: 6
+console.log(a.sort((v1, v2) => v2 - v1));
+// OUTPUT: [3,2,1]
+
+a.push(4);
+console.log(a.length);
+// OUTPUT: 4
+```
+
+*JavaScript Regular Expressions:*
+
+`/pattern/modifiers;`
+- ex) /w3schools/i;
+
+Modifiers:
+
+- i	Perform case-insensitive matching	
+- g	Perform a global match (find all)	
+- m	Perform multiline matching	
+- d	Perform start and end matching (New in ES2022)
+
+**Regular Expression Patterns:**
+
+Brackets are used to find a range of characters:
+
+- [abc]	Find any of the characters between the brackets	
+- [0-9]	Find any of the digits between the brackets	
+- (x|y)	Find any of the alternatives separated with |	
+- Metacharacters are characters with a special meaning:
+
+Metacharacters:
+
+- \d	Find a digit	
+- \s	Find a whitespace character	
+- \b	Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b	
+- \uxxxx	Find the Unicode character specified by the hexadecimal number xxxx	
+
+Quantifiers define quantities:
+
+- n+	Matches any string that contains at least one n
+- n*	Matches any string that contains zero or more occurrences of n
+- n?	Matches any string that contains zero or one occurrences of n
+
+
+*`.search()` and `.replace()`*
+
+```java
+let text = "Visit W3Schools!";
+let n = text.search("W3Schools");
+// OUTPUT for n = index pos. of pattern found start
+
+let text = "Visit Microsoft!";
+let result = text.replace("Microsoft", "W3Schools");
+```
+
+*Other JavaScript Built-In Syntax:*
+
+**Rest**
+
+- JavaScript provides the rest syntax to make this easier. Think of it as a parameter that contains the rest of the parameters. To turn the last parameter of any function into a rest parameter you prefix it with three periods. You can then call it with any number of parameters and they are all automatically combined into an array.
+
+```java
+function hasNumber(test, ...numbers) {
+  return numbers.some((i) => i === test);
+}
+
+hasNumber(2, 1, 2, 3);
+// RETURNS: true
+```
+
+**Spread**
+
+- Spread does the opposite of rest. It take an object that is iterable (e.g. array or string) and expands it into a function's parameters. Consider the following.
+
+```java
+function person(firstName, lastName) {
+  return { first: firstName, last: lastName };
+}
+
+const p = person(...['Ryan', 'Dahl']);
+console.log(p);
+// OUTPUT: {first: 'Ryan', last: 'Dahl'}
+```
+
+*JavaScript Try/Catch/Finally:*
+
+```java
+try {
+  // normal execution code
+} catch (err) {
+  // exception handling code
+} finally {
+  // always called code
+}
+```
+
+- The fallback pattern is commonly implemented using exception handling. To implement the fallback pattern you put the normal feature path in a try block and then provide a fallback implementation in the catch block. For example, normally you would get the high scores for a game by making a network request, but if the network is not available then a locally cached version of the last available scores is used. By providing a fallback, you can always return something, even if the desired feature is temporarily unavailable.
+
+```java
+function getScores() {
+  try {
+    const scores = scoringService.getScores();
+    // store the scores so that we can use them later if the network is not available
+    window.localStorage.setItem('scores', scores);
+    return scores;
+  } catch {
+    return window.localStorage.getItem('scores');
+  }
+}
+```
+
+*JavaScript Destructuring:*
+
+```java
+const a = [1, 2, 4, 5];
+
+// destructure the first two items from a, into the new variables b and c
+const [b, c] = a;
+
+console.log(b, c);
+// OUTPUT: 1, 2
+```
+
+and
+
+```java
+const [b, c, ...others] = a;
+
+console.log(b, c, others);
+// OUTPUT: 1, 2, [4,5]
+```

@@ -24,8 +24,10 @@
     </header>
     
     <div style="width: 100%; height: 500px; background-color: #f0f0f0; margin-bottom: 10px; border: 1px solid black;">
-        <!-- Video placeholder -->
-        <p style="text-align: center; padding-top: 130px;">Video goes here</p>
+        <video style="width: 100%; height: 100%; object-fit: cover;" autoplay loop>
+            <source src="https://videos.pexels.com/video-files/5118415/5118415-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
     <div style="text-align: center; margin-bottom: 40px;">
@@ -58,10 +60,10 @@
             <p>(grab off user's IP Address, pull content from queried most followed users in database)</p>
         </div>
     
-        <div style="display: flex; justify-content: space-between; margin-bottom: 40px;">
+        <div class="featured-users">
             <div class="profile-box">
                 <div class="profile-slideshow">
-                    content slideshow placeholder
+                    <img src=".\stockphotos\makingmusic.jpg" alt="music">
                     <div class="profile-info">
                         <i class="fas fa-user fa-2x"></i>
                         <span>Profile</span>
@@ -69,27 +71,27 @@
                 </div>
             </div>
             <div class="profile-box">
-                <div class="profile-slideshow">
-                    content slideshow placeholder
-                    <div class="profile-info">
-                        <i class="fas fa-user fa-2x"></i>
-                        <span>Profile</span>
-                    </div>
+              <div class="profile-slideshow">
+                <img src=".\stockphotos\photoshoot.png" alt="photo">
+                <div class="profile-info">
+                  <i class="fas fa-user fa-2x"></i>
+                  <span>Profile</span>
                 </div>
+              </div>
             </div>
             <div class="profile-box">
-                <div class="profile-slideshow">
-                    content slideshow placeholder
-                    <div class="profile-info">
-                        <i class="fas fa-user fa-2x"></i>
-                        <span>Profile</span>
-                    </div>
+              <div class="profile-slideshow">
+                <img src=".\stockphotos\videography.jpg" alt="video">
+                <div class="profile-info">
+                  <i class="fas fa-user fa-2x"></i>
+                  <span>Profile</span>
                 </div>
+              </div>
             </div>
-        </div>
+          </div>
 
         <div class="make-account" style="position: relative; justify-content: space-between; margin-bottom: 40px; background: linear-gradient(135deg, lavender 50%, lightgray 50%); height: 300px; padding-top: 20px;">
-            <h1 style="margin: 0 0 5px 20px; border-bottom: 2px solid #290740; width: 680px;">find your people and share your creativity.</h2>
+            <h1 style="margin: 0 0 5px 20px; width: 680px;">find your people and share your creativity.</h2>
             <h2 style="margin: 0 0 0 20px; color: grey;">create your account today</h3>
             <div style="text-align: center; position: absolute; right: 100px; top: 50%; transform: translateY(-50%);">
                 <button style="padding: 40px 80px; font-size: 18px;">Create Your Account</button>
