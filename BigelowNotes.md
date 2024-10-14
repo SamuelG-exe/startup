@@ -892,5 +892,34 @@ const Hello = () => {
 };
 
 ReactDOM.render(<Hello phrase="function" />,document.querySelector("#root"));
+```
 
+*JavaScript Promises Chain:*
+```js
+function pickupPizza() {
+  const order = createOrder();
+
+  // Promise
+  placeOrder(order)
+    .then((order) => makePizza(order))
+    .then((order) => serveOrder(order))
+    .catch((order) => {
+      orderFailure(order);
+    });
+}
+```
+
+
+*JavaScript Async/Await Keywords:*
+```js
+async function pickupPizza() {
+  const order = createOrder();
+
+  try {
+    //use of await keyword w/ call to Promise func!
+    serveOrder(await placeOrder(order));
+  } catch (order) {
+    orderFailure(order);
+  }
+}
 ```
