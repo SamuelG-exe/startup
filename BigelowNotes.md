@@ -705,9 +705,11 @@ console.log(b, c, others);
 
 **Midterm Practice Question Notes:**
 
-By default, the HTML span element has a default CSS display property value of: inline
-How would you use CSS to change all the div elements to have a background color of red?
+By default, the HTML span element has a default CSS display property value of:
+- inline
+- <span> elements are inline by default, meaning they flow with the surrounding text without forcing a new line, and their dimensions are set by their content rather than CSS width/height properties. This is in contrast to block-level elements like <div> that start on a new line and take up the full available width by default
 
+How would you use CSS to change all the div elements to have a background color of red?
 ```css
 div {
   background-color: red;
@@ -715,7 +717,6 @@ div {
 ```
 
 How would you display an image with a hyperlink in HTML?
-
 ```html
 <a href="url">
   <img src="image.jpg" alt="description">
@@ -723,27 +724,26 @@ How would you display an image with a hyperlink in HTML?
 ```
 
 Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
-
 ```html
 <p>Here comes <span>double</span> <span>trouble</span>!</p>
-
-css
+```
+```css
 span:last-child {
   color: green;
 }
 ```
 
 What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
-Paragraph: <p>
-Ordered list: <ol>3
-Unordered list: <ul>3
-Second level heading: <h2>
-First level heading: <h1>
-Third level heading: <h3>
+- Paragraph: <p>
+- Ordered list: <ol>3
+- Unordered list: <ul>3
+- Second level heading: <h2>
+- First level heading: <h1>
+- Third level heading: <h3>
 
 
 How do you declare the document type to be html?
-<!DOCTYPE html>
+- <!DOCTYPE html>
 
 
 
