@@ -493,7 +493,7 @@ window.alert(5 + 6);
 ```
 
 
-*JavaScript Objects:*
+**JavaScript Objects:**
 
 ```html
 <!DOCTYPE html>
@@ -701,3 +701,161 @@ const [b, c, ...others] = a;
 console.log(b, c, others);
 // OUTPUT: 1, 2, [4,5]
 ```
+
+
+**Midterm Practice Question Notes:**
+
+By default, the HTML span element has a default CSS display property value of: inline
+How would you use CSS to change all the div elements to have a background color of red?
+
+```css
+div {
+  background-color: red;
+}
+```
+
+How would you display an image with a hyperlink in HTML?
+
+```html
+<a href="url">
+  <img src="image.jpg" alt="description">
+</a>
+```
+
+Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
+
+```html
+<p>Here comes <span>double</span> <span>trouble</span>!</p>
+
+css
+span:last-child {
+  color: green;
+}
+```
+
+What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
+Paragraph: <p>
+Ordered list: <ol>3
+Unordered list: <ul>3
+Second level heading: <h2>
+First level heading: <h1>
+Third level heading: <h3>
+
+
+How do you declare the document type to be html?
+<!DOCTYPE html>
+
+
+
+How would you use JavaScript to select an element with the id of "byu" and change the text color of that element to green?
+```js
+document.getElementById("byu").style.color = "green";
+```
+
+What is valid javascript syntax for if, else, for, while, switch statements?
+```js
+if (condition) {
+  // code
+} else if (condition) {
+  // code  
+} else {
+  // code
+}
+
+for (initialization; condition; final-expression) {
+  // code
+}
+
+while (condition) {
+   // code
+}
+
+switch(expression) {
+  case x:
+    // code
+    break;
+  case y:
+    // code
+    break;
+  default:
+    // code
+}
+```
+
+What is the correct syntax for creating a javascript object?
+```js
+const obj = {
+  property1: value1,
+  property2: value2
+};
+```
+
+
+Is it possible to add new properties to javascript objects?
+- Yes, you can add new properties to JavaScript objects after they are created using dot notation or bracket notation:
+
+```js
+obj.newProperty = "new value";
+obj["another new property"] = 123;
+```
+
+If you want to include JavaScript on an HTML page, which tag do you use?
+- <script>
+
+Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
+```xml
+<p>My favorite <span id="animal">animal</span> is a <span id="fish">fish</span>.</p>
+```
+```js
+document.getElementById("animal").textContent = "crow";
+```
+
+Which of the following correctly describes JSON?
+- JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write and easy for machines to parse and generate.
+
+Command Line
+What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo do?
+- chmod: change file modes or access control lists
+- pwd: print name of current/working directory
+- cd: change the working directory
+- ls: list directory contents
+- vim: text editor
+- nano: text editor
+- mkdir: make directories
+- mv: move (rename) files
+- rm: remove files or directories
+- man: an interface to the system reference manuals
+- ssh: remote login program
+- ps: report a snapshot of the current processes
+- wget: network downloader
+- sudo: execute a command as another user (typically superuser)
+
+Which of the following console command creates a remote shell session?
+- ssh
+
+Which of the following is true when the -la parameter is specified for the ls console command?
+- The -la option combines -l (use a long listing format) and -a (do not ignore entries starting with .). So it shows all files, including hidden ones, in the long listing format.
+
+Domains and Networking
+Which of the following is true for the domain name banana.fruit.bozo.click:
+- Top-level domain: .click
+- Subdomain: banana
+- Root domain: bozo.click
+
+Is a web certificate necessary to use HTTPS?
+- Yes, an SSL/TLS certificate is required to enable HTTPS on a website7. The certificate provides the encryption for the secure connection.
+
+Can a DNS A record point to an IP address or another A record?
+- A DNS A record points to an IP address. It cannot directly point to another A record.
+
+Port 443, 80, 22 is reserved for which protocol?
+- Port 443: HTTPS
+- Port 80: HTTP
+- Port 22: SSH
+
+
+
+
+
+**Web Frameworks:**
+
