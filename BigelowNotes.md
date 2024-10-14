@@ -859,3 +859,38 @@ Port 443, 80, 22 is reserved for which protocol?
 
 **Web Frameworks:**
 
+- Every React function you create is a new tag
+
+*React Component Function Creation:*
+```js
+const Hello = ({ phrase }) => {
+  return (
+    <div>
+      <p>Hello {phrase}</p>
+    </div>
+  );
+};
+
+ReactDOM.render(<Hello phrase="cs260" />,document.querySelector("#root"));
+```
+- We pass the parameter in the tag declaration
+
+```js
+const Hello = () => {
+  const [color, setColor] = React.useState("red");
+
+  function changeColor() {
+    setColor(color === "red" ? "green" : "red");
+  }
+
+  return (
+    <div>
+      <p style={{ color: color }}>Hello</p>
+      <button onClick={changeColor}>change</button>
+    </div>
+  );
+};
+
+ReactDOM.render(<Hello phrase="function" />,document.querySelector("#root"));
+
+```
