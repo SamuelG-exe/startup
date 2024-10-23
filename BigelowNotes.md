@@ -923,3 +923,54 @@ async function pickupPizza() {
   }
 }
 ```
+
+**Midterm Mistakes:**
+
+1. What does the following code do? = Sets "f" to a function that returns the square of "x" (the "=>" implies a return statement)
+```js
+const f = x => x * x;
+```
+
+2. What does the following code output? = [ 2, 4, 6, 8, 10 ]
+```js
+let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let b = a.filter(number => {
+  return (number % 2 === 0)
+});
+console.log(b);
+```
+
+3. Which of the following are valid syntax for creating a function in JavaScript?
+- let execute = (x) => { } 
+- function f(x) { }
+- const f = function(x) { }
+
+4. Given the following HTML, what JavaScript could you use to set the text "yes" to "cow" and leave the "no" text unaffected?
+- document.querySelector("p.demo").textContent = "cow";
+```html
+<p>no</p>
+<p class="demo">yes</p>
+<div class="demo">no</div>
+```
+
+5. What will the following code output when executed? 
+- ski taco banana fish
+```js
+const p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+     console.log('banana')
+     resolve(true);
+  }, 10000);
+});
+console.log('ski');
+
+p.then((result) => console.log('fish'));
+
+console.log('taco');
+```
+
+*Vite Notes:*
+<a href=https://learn.cs260.click/page/webFrameworks/react/vite/vite_md>Vite Info</a>
+
+- If youre going to make a function that returns more than one thing it has to be wrapped in a empty <></> or a div tag but just use the empty.
+- Files that are just react component functions need to have Export Default
