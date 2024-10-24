@@ -974,3 +974,52 @@ console.log('taco');
 
 - If youre going to make a function that returns more than one thing it has to be wrapped in a empty <></> or a div tag but just use the empty.
 - Files that are just react component functions need to have Export Default
+
+
+*React Notes:*
+```jsx
+import React from "https://cdn.skypack.dev/react";
+import ReactDOM from "https://cdn.skypack.dev/react-dom";
+
+const Survey = () => {
+  const [text, updateText] = React.useState("");
+
+  // When the text changes update the state
+  const onChange = (e) => {
+    updateText(e.target.value);
+  };
+
+  return (
+    <div>
+      <h1>Survey</h1>
+
+      {/* Pass the Survey color  as a parameter to the Question.
+          When the color changes the Question parameter will also be updated and rendered. */}
+      <Question answer={text} />
+
+      <p>
+        <span class="prompt">Input some text => </span>
+        {/* Set the Survey color state as a the value of the color picker.
+            When the color changes, the value will also be updated and rendered. */}
+        <input
+          type="text"
+          onChange={(e) => onChange(e)}
+          placeholder="put something down!"
+        />
+      </p>
+    </div>
+  );
+};
+
+// The Question component
+const Question = ({ answer }) => {
+  return (
+    <div>
+      {/* Answer rerendered whenever the parameter changes */}
+      <p>Your provided text: {answer}</p>
+    </div>
+  );
+};
+
+ReactDOM.render(<Survey />, document.getElementById("root"));
+```
