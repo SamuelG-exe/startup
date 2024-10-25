@@ -172,7 +172,7 @@
       margin-right: 10%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .Discover-right-sidebar {
     display: none;
   }
