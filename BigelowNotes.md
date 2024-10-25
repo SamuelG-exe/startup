@@ -977,6 +977,11 @@ console.log('taco');
 
 
 *React Notes:*
+
+- using `React.useState()` gives us a variable in the Virtual DOM for the state, initializing it for what we want, but it keeps track of state for the component
+- you set it equal to a `const [val, updateVal]` since `React.useState()` returns an array we "deconstruct," the 2nd variable MUST be used to change the first
+- We can deconstruct objects into their respective
+
 ```jsx
 import React from "https://cdn.skypack.dev/react";
 import ReactDOM from "https://cdn.skypack.dev/react-dom";
@@ -985,7 +990,7 @@ const Survey = () => {
   const [text, updateText] = React.useState("");
 
   // When the text changes update the state
-  const onChange = (e) => {
+  const whenChanging = (e) => {
     updateText(e.target.value);
   };
 
@@ -1003,7 +1008,7 @@ const Survey = () => {
             When the color changes, the value will also be updated and rendered. */}
         <input
           type="text"
-          onChange={(e) => onChange(e)}
+          onChange={(e) => whenChanging(e)}
           placeholder="put something down!"
         />
       </p>
@@ -1022,4 +1027,34 @@ const Question = ({ answer }) => {
 };
 
 ReactDOM.render(<Survey />, document.getElementById("root"));
+```
+
+- {} are included to evaluate the variable OR when passing in a property as a parameter to another function, you put braces around it to "deconstruct" and grab the element/attribute you needed. For example:
+
+```js
+<Question answer={text} random={elements, and stuff} />
+...
+const Question = ({ answer }) => {
+  return (
+    <div>
+      {/* Answer rerendered whenever the parameter changes */}
+      <p>Your provided text: {answer}</p>
+    </div>
+  );
+};
+```
+
+*is the same as (stuff name is arbitrary)
+
+```js
+<Question answer={text} random={elements, and stuff}/>
+...
+const Question = (stuff) => {
+  return (
+    <div>
+      {/* Answer rerendered whenever the parameter changes */}
+      <p>Your provided text: {stuff.answer}</p>
+    </div>
+  );
+};
 ```
