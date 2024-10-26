@@ -1,19 +1,28 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import Header from './header.jsx';
 import Footer from './footer.jsx';
+import Home from './page_components/Home.jsx';
+import './css_components/App.css';
+
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <Header />
-      <main className="flex-grow-1">
-        {/* Your page content will go here */}
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="app-container">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/discover" element={<Discover />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/messages" element={<Messages />} /> */}
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
-export default App
+export default App;
