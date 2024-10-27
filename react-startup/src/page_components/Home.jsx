@@ -58,9 +58,9 @@ function FeaturedProfiles() {
         <p>(grab off user's IP Address, pull content from queried most followed users in database)</p>
       </div>
       <div className="featured-users">
-        <ProfileBox image="../../public/makingmusic.jpg" alt="music" />
-        <ProfileBox image="../../public/photoshoot.png" alt="photo" />
-        <ProfileBox image="../../public/videography.jpg" alt="video" />
+        <ProfileBox image="/makingmusic.jpg" alt="music" />
+        <ProfileBox image="/photoshoot.png" alt="photo" />
+        <ProfileBox image="/videography.jpg" alt="video" />
       </div>
     </div>
   );

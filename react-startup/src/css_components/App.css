@@ -1,3 +1,4 @@
+/* App.css */
 body, html, #root {
     width: 100%;
     height: 100%;
@@ -12,17 +13,57 @@ body, html, #root {
     width: 100%;
 }
 
-.navbar {
+/* New custom navbar styles */
+.custom-navbar {
     width: 100%;
     height: 130px;
     padding: 1rem 0;
     margin: 0;
+    background-color: violet;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
 }
 
 .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    max-width: 100%;
     padding: 0 2rem;
+}
+
+.nav-links-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.custom-nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.custom-nav-link:hover {
+    opacity: 0.8;
+    color: white;
+}
+
+.brand-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.brand-link:hover {
+    color: white;
+    opacity: 0.8;
 }
 
 main {
@@ -35,4 +76,6 @@ footer {
     width: 100%;
     padding: 1rem 0;
     margin-top: auto;
+    background-color: blueviolet;
+    color: white;
 }
