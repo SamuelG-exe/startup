@@ -1,7 +1,7 @@
 // Home.jsx
 import { FaSearch, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import '../css_components/Home.css';
+import './Home.css';
 
 function MusicVideo() {
   return (
