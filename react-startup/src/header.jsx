@@ -4,7 +4,7 @@ import { FaHome, FaSearch, FaUser, FaEnvelope } from 'react-icons/fa';
 
 function Header() {
   return (
-    <Navbar bg="light" expand="lg" className="mb-3">
+    <Navbar bg="light" expand="lg" className="custom-navbar">
       <Container>
         <Navbar.Brand as={Link} to="/">Your Logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

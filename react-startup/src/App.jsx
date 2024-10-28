@@ -3,10 +3,14 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './header';
 import Footer from './footer';
 import Home from './home/Home';
-// import Discover from './discover/Discover';
+import Discover from './discover/discover';
 // import Profile from './profile/Profile';
 // import Messages from './messages/Messages';
 import { useEffect } from 'react';
+
+function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
+}
 
 function App() {
     const location = useLocation();
@@ -36,9 +40,10 @@ function App() {
             <main className="flex-grow-1">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    {/* <Route path="/discover" element={<Discover />} />
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/discover" element={<Discover />} />
+                    {/* <Route path="/profile" element={<Profile />} />
                     <Route path="/messages" element={<Messages />} /> */}
+                    <Route path='*' element={<NotFound />} />
                 </Routes>
             </main>
             <Footer />
