@@ -1,4 +1,4 @@
-/* App.css */
+/* App 2.css */
 body, html, #root {
     width: 100%;
     height: 100%;
@@ -16,13 +16,17 @@ body, html, #root {
 /* New custom navbar styles */
 .custom-navbar {
     width: 100%;
-    height: 130px;
+    height: 80px;
     padding: 1rem 0;
     margin: 0;
-    background-color: magenta;
+    background-color:  rgb(106, 0, 255);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .navbar-container {
@@ -78,4 +82,10 @@ footer {
     margin-top: auto;
     background-color: blueviolet;
     color: white;
+}
+
+.flex-grow-1 {
+    padding-top: 130px; /* This should match the height of your navbar */
+    flex: 1;
+    width: 100%;
 }

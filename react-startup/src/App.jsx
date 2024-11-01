@@ -4,8 +4,8 @@ import Header from './header';
 import Footer from './footer';
 import Home from './home/Home';
 import Discover from './discover/discover';
-// import Profile from './profile/Profile';
-// import Messages from './messages/Messages';
+import Profile from './profile/Profile';
+import Messages from './messages/Messages';
 import { useEffect } from 'react';
 
 function NotFound() {
@@ -41,8 +41,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/discover" element={<Discover />} />
-                    {/* <Route path="/profile" element={<Profile />} />
-                    <Route path="/messages" element={<Messages />} /> */}
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/messages" element={<Messages />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
             </main>
