@@ -1058,3 +1058,11 @@ const Question = (stuff) => {
   );
 };
 ```
+
+**Fetch (Getting API Info):**
+
+```js
+fetch(url)
+   .then(r => r.text())
+   .then(text => console.log(text))
+```
