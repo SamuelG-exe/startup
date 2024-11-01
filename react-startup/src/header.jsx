@@ -4,16 +4,16 @@ import { FaHome, FaSearch, FaUser, FaEnvelope } from 'react-icons/fa';
 
 function Header() {
   return (
-    <Navbar bg="light" expand="lg" className="custom-navbar">
-      <Container>
-        <Navbar.Brand as={Link} to="/">Your Logo</Navbar.Brand>
+    <Navbar expand="lg" className="custom-navbar fixed-top">
+      <Container className="navbar-container">
+        <Navbar.Brand as={Link} to="/" className="brand-link">Your Logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <div className="ms-auto">
-            <Link to="/" className="btn btn-link"><FaHome /> Home</Link>
-            <Link to="/discover" className="btn btn-link"><FaSearch /> Discover</Link>
-            <Link to="/profile" className="btn btn-link"><FaUser /> Profile</Link>
-            <Link to="/messages" className="btn btn-link"><FaEnvelope /> Messages</Link>
+          <div className="nav-links-container ms-auto">
+            <Link to="/" className="custom-nav-link"><FaHome /> Home</Link>
+            <Link to="/discover" className="custom-nav-link"><FaSearch /> Discover</Link>
+            <Link to="/profile" className="custom-nav-link"><FaUser /> Profile</Link>
+            <Link to="/messages" className="custom-nav-link"><FaEnvelope /> Messages</Link>
           </div>
         </Navbar.Collapse>
       </Container>
