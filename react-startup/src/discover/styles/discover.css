@@ -1,0 +1,179 @@
+  .Discover-left-sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: lavender;
+    color: #000000;
+    position: sticky;
+    height: 60vh;
+    top: 0;
+
+  }
+  .Discover-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+
+  
+  .Discover-main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Discover-right-sidebar {
+    width: 250px;
+    padding-top: 50%;
+    padding: 20px;
+    background-color: #f1f1f1;
+    position: sticky;
+    top: 0;
+    height: 30vh;
+  }
+  
+  .Discover-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+
+  }
+  
+  .Discover-search h2 {
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 0 10px;
+  }
+  
+  .Discover-grid {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+  }
+  
+  .Discover-box-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.profile-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-slideshow {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.profile-slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-info i {
+    margin-right: 10px;
+}
+
+.Discover-box-user {
+    display: none;
+}
+  
+  .filter-item {
+    margin-bottom: 10px;
+  }
+  
+  .filter-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .sub-options {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  .filter-item.active .sub-options {
+    display: block;
+  }
+  
+  .sub-options label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .sub-options input[type="text"],
+  .sub-options select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .event-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .event-list li {
+    margin-bottom: 10px;
+  }
+  
+  .attendees-count {
+    font-size: 12px;
+    color: #666;
+  }
+  
+
+@media (max-width: 1024px) {
+  .Discover-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .Discover-grid {
+      grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .Discover-search {
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+}
+@media (max-width: 1000px) {
+  .Discover-right-sidebar {
+    display: none;
+  }
+}

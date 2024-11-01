@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './header';
 import Footer from './footer';
 import Home from './home/Home';
-import Discover from './discover/discover';
+import Discover from './discover/pages/discover';
 // import Profile from './profile/Profile';
 // import Messages from './messages/Messages';
 import { useEffect } from 'react';
