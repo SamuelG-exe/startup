@@ -5,7 +5,7 @@ import App from './App.jsx'
 // Import Bootstrap first
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';  // Make sure this comes after Bootstrap CSS
+import './App 2.css';  // Make sure this comes after Bootstrap CSS
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
