@@ -6,7 +6,12 @@ function Header() {
   return (
     <Navbar expand="lg" className="custom-navbar fixed-top">
       <Container className="navbar-container">
-        <Navbar.Brand as={Link} to="/" className="brand-link">Your Logo</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" className="brand-link"><img 
+          src={"temp_logo.png"} 
+          alt="Your Logo" 
+          style={{ height: '40px', width: 'auto' }} // Adjust size as needed
+        />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <div className="nav-links-container ms-auto">

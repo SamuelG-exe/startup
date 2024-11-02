@@ -7,7 +7,7 @@ function Footer() {
         <div className="row">
           <div className="col-md-4">
             <h5>About Us</h5>
-            <p>Your company description here</p>
+            <p>Our GitHub Repo:  <a href="https://github.com/SamuelG-exe/startup.git">Click Here</a></p>
           </div>
           <div className="col-md-4">
             <h5>Quick Links</h5>
