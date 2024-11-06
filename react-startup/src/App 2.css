@@ -42,6 +42,15 @@ body, html, #root {
     gap: 20px;
     align-items: center;
 }
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+  }
+  
+  .navbar-collapse {
+    background-color: #290740;
+    transition: all 0.03s ease-in-out !important;
+  }
+  
 
 .custom-nav-link {
     color: white;
@@ -89,3 +98,23 @@ footer {
     flex: 1;
     width: 100%;
 }
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+    }
+    
+    .navbar-collapse.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .navbar-collapse.collapsing {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+  }
