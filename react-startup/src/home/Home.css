@@ -56,15 +56,15 @@
 
 .featured-users {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   width: 100%;
   margin-bottom: 40px;
 }
 
 .profile-box {
   width: 100%;
-  height: 400px;
+  height: 300px;
   border: 1px solid black;
 }
 
@@ -81,6 +81,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .profile-info {
@@ -133,19 +134,13 @@
 }
 
 /* Media Queries */
-@media (max-width: 992px) {
+@media (max-width: 900px) {
   .featured-users {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
   }
   
   .profile-box {
-    height: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  .featured-users {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    height: 180px;
   }
   
   .make-account {
