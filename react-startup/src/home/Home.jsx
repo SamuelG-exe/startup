@@ -38,7 +38,6 @@ function SearchSection() {
 
 function ProfileBox({ image, alt }) {
   return (
-    <div className="profile-box">
       <div className="profile-slideshow">
         <img src={image} alt={alt} />
         <div className="profile-info">
@@ -46,7 +45,6 @@ function ProfileBox({ image, alt }) {
           <span>Profile</span>
         </div>
       </div>
-    </div>
   );
 }
 
