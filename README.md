@@ -93,3 +93,34 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 *Application Elements, Text Content, and Images*
 - (all html pages) Our notation still points out the key features of Freel, along with the usage of API calls, WebSocket communication, and database pulls and representations. We have text showing the role and purpose of our product and each divided page (profile page with a bio, discover page with selected filters, etc.)
 - index.html, discover.html, profile.html: We included royalty-free images and even a video to help establish the vibe we want for our website *and* showcase the 3 main categories of content our users can create/share and also find/follow, namely: Music, Photography, Videography
+
+
+## React Deliverable (11/6/24):
+*10% Bundled using Vite*
+- Project was buddled with Vite.
+
+*50% Multiple react components that implement or mock all app functionality*
+- Header and footer 
+    built using react and Bootstrap and responds to resizing and navigation. 
+- Home 
+    on page discover button links to discover.  
+- Messages
+    mimic functionality of webhooks
+- Discover 
+    Has filter buttons and a price range.
+    separated into components 
+    utilizes useState
+- Profile
+    Has reviews
+    responds to resizing 
+
+- We plan to implement more functionality in future deployments when we have a database to reference, webhooks, and API calls(messaging, actual reviews, profiles, profile class structure ...)
+
+*20% React router*
+- Pages are routed from app.jsx and not whole new html documents.
+- Implemented 404 page
+
+*20% React router*
+- Discover left sidebar uses useState
+- More implementation of this will come upon login and backend development as other locations for its current use require user class or login status
+

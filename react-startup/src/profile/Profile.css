@@ -103,12 +103,18 @@
     border: 1px solid #ccc;
     padding: 10px;
   }
-  
+
   @media screen and (max-width: 1000px) {
     .events-attending {
       display: none;
     }
   }
+  /* @media screen and (max-width: 600px) {
+    .description-box{
+      display: none;
+    }
+    
+  } */
   
   @media screen and (max-width: 600px) {
     .contact-details {

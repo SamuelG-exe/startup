@@ -1,6 +1,7 @@
 import React from 'react';
 import './Profile.css';
 import '../App 2.css';
+import Reviews from './components/Reviews';
 
 const Profile = () => {
   return (
@@ -10,9 +11,7 @@ const Profile = () => {
       <div className="image-box">
       <div className="username">Username</div>
         <img src="https://via.placeholder.com/150" alt="Profile" />
-        <div className="reviews-box">
-          Reviews
-        </div>
+        <Reviews />
       </div>
 
       
