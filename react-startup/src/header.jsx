@@ -9,7 +9,7 @@ function Header() {
         <Navbar.Brand as={Link} to="/" className="brand-link"><img 
           src={"temp_logo.png"} 
           alt="Your Logo" 
-          style={{ height: '40px', width: 'auto' }} // Adjust size as needed
+          style={{ height: '60px', width: 'auto' }} // Adjust size as needed
         />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
