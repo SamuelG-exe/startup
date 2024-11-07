@@ -19,7 +19,9 @@ function SearchSection() {
     <div className="search-section">
       <h1>make creativity collaborative</h1>
       <div className="discover-button">
-        <button>Discover</button>
+        <Link to="/discover">
+          <button>Discover</button>
+        </Link>      
       </div>
       <div className="search-controls">
         <select>

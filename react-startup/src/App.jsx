@@ -31,7 +31,7 @@ function App() {
                 document.title = 'Messages';
                 break;
             default:
-                document.title = 'Your App Name';
+                document.title = 'FreelConnect';
         }
     }, [location]);
 
