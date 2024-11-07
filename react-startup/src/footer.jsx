@@ -6,6 +6,7 @@ function Footer() {
       <Container>
         <div className="row">
           <div className="col-md-4">
+            <h4>Samuel G. and Bentley B.</h4>
             <h5>About Us</h5>
             <p>Our GitHub Repo:  <a href="https://github.com/SamuelG-exe/startup.git">Click Here</a></p>
           </div>
