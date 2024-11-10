@@ -1,19 +1,26 @@
 
 
 export function loginExistingUser(username, password) {
-    console.log("Login button pressed!");
-    return fetch('/api/auth/create', {
+    return fetch('/api/auth/login', {  // Updated endpoint path
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            email: username,
+            email: username,  // Match the server's expected field name
             password: password
         })
     })
-    .then((response) => response.json())
-    .catch(error => console.error('Login error:', error));
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .catch(error => {
+        console.error('Login error:', error);
+        throw error; // Re-throw to handle in component
+    });
 }
 
 // Add other methods with named exports

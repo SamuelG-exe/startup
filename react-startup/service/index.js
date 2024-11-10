@@ -18,19 +18,34 @@ const users = {};  // Add this line before your routes
 
 
 // CreateAuth a new user
-apiRouter.post('api/auth/create', async (req, res) => {
-    const user = users[req.body.email];
-    console.log("In Auth Create endpoint call")
-    if (user) {
-      res.status(409).send({ msg: 'Existing user' });
-    } else {
-      const user = { email: req.body.email, password: req.body.password, token: uuid.v4() };
-      users[user.email] = user;
-  
-      res.send({ token: user.token });
-    }
-  });
+// Remove the duplicate /api prefix
+apiRouter.post('/auth/login', async (req, res) => {
+    console.log("Contact has been made!")
+    try {
+        const { email, password } = req.body;
+        
+        if (!email || !password) {
+            return res.status(400).json({ msg: 'Missing required fields' });
+        }
 
+        const user = users[email];
+        
+        if (user) {
+            return res.status(409).json({ msg: 'Existing user' });
+        }
+
+        const newUser = { 
+            email, 
+            password, 
+            token: uuidv4() 
+        };
+        users[email] = newUser;
+
+        res.status(201).json({ token: newUser.token });
+    } catch (error) {
+        res.status(500).json({ msg: 'Server error' });
+    }
+});
 
 
   app.listen(port, () => {
