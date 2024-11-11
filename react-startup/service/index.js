@@ -18,7 +18,6 @@ const users = {};  // Add this line before your routes
 
 
 // CreateAuth a new user
-// Remove the duplicate /api prefix
 apiRouter.post('/auth/login', async (req, res) => {
     console.log("Contact has been made!")
     try {
