@@ -7,7 +7,7 @@ export function loginExistingUser(username, password) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            email: username,  // Match the server's expected field name
+            username: username,  // Match the server's expected field name
             password: password
         })
     })

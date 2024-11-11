@@ -16,7 +16,7 @@ function Login() {
           if (result.token) {
               login(username);
               navigate('/');
-              console.log(result.token);
+              // console.log(result.token);
           }
       } catch (error) {
           console.error('Login failed:', error);

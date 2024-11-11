@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 const app = express();
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 app.use(cors());
 // JSON body parsing using built-in middleware
@@ -22,24 +22,24 @@ const users = {};  // Add this line before your routes
 apiRouter.post('/auth/login', async (req, res) => {
     console.log("Contact has been made!")
     try {
-        const { email, password } = req.body;
+        const { username, password } = req.body;
         
-        if (!email || !password) {
+        if (!username || !password) {
             return res.status(400).json({ msg: 'Missing required fields' });
         }
 
-        const user = users[email];
+        const user = users[username];
         
         if (user) {
             return res.status(409).json({ msg: 'Existing user' });
         }
 
         const newUser = { 
-            email, 
+            username, 
             password, 
             token: uuidv4() 
         };
-        users[email] = newUser;
+        users[username] = newUser;
 
         res.status(201).json({ token: newUser.token });
     } catch (error) {
