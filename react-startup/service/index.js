@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
 const app = express();
+// import {run} from './database_methods.js'
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -39,7 +40,7 @@ apiRouter.post('/auth/login', async (req, res) => {
             token: uuidv4() 
         };
         users[username] = newUser;
-
+        // run();
         res.status(201).json({ token: newUser.token });
     } catch (error) {
         res.status(500).json({ msg: 'Server error' });

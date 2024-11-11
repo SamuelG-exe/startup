@@ -1,9 +1,9 @@
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+import dbConfig from './dbConfig.json' assert { type: 'json' };
+import { MongoClient, ServerApiVersion } from 'mongodb';
+const url = `mongodb+srv://SandB:SamuelAndBentleyDoFreel@freel.p52eu.mongodb.net`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
+const client = new MongoClient(url, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -11,7 +11,7 @@ const client = new MongoClient(uri, {
   }
 });
 
-async function run() {
+export async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
