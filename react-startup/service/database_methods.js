@@ -1,7 +1,6 @@
 import dbConfig from './dbConfig.json' assert { type: 'json' };
 import { MongoClient, ServerApiVersion } from 'mongodb';
-// const url = `mongodb+srv://${dbConfig.userName}:${dbConfig.password}@${dbConfig.hostname}`;
-const url = `mongodb+srv://SandB:SamuelAndBentleyDoFreel@freel.p52eu.mongodb.net`;
+const url = `mongodb+srv://${dbConfig.userName}:${dbConfig.password}@${dbConfig.hostname}`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(url, {
@@ -26,6 +25,38 @@ export async function run() {
 }
 run().catch(console.dir);
 
-
-
-
+export async function addUser(username, password, token) {
+    try {
+      await client.connect();
+      const database = client.db("FreelDB");
+      const users = database.collection("Users");
+      const auth = database.collection("Auth");
+      
+      // Add to Users collection
+      await users.insertOne({
+        username,
+        password
+      });
+  
+      // Add to Auth collection
+      await auth.insertOne({
+        username,
+        token
+      });
+  
+    } finally {
+      await client.close();
+    }
+  }
+  
+  export async function findUser(username) {
+    try {
+      await client.connect();
+      const database = client.db("FreelDB");
+      const users = database.collection("Users");
+      
+      return await users.findOne({ username });
+    } finally {
+      await client.close();
+    }
+  }
