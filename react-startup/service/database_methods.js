@@ -60,3 +60,17 @@ export async function addUser(username, password, token) {
       await client.close();
     }
   }
+
+  export async function removeAuthToken(username) {
+    try {
+      await client.connect();
+      const database = client.db("FreelDB");
+      const auth = database.collection("Auth");
+      
+      const result = await auth.deleteOne({ username });
+      return result.deletedCount > 0;
+    } finally {
+      await client.close();
+    }
+  }
+  

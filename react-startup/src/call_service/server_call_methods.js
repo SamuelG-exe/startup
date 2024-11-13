@@ -1,47 +1,67 @@
-
-
-export function loginExistingUser(username, password) {
-    return fetch('/api/auth/login', {  // Updated endpoint path
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            username: username,  // Match the server's expected field name
-            password: password
-        })
+export function loginUser(username, password) {
+    return fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username,
+        password
+      })
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
     })
     .catch(error => {
-        console.error('Login error:', error);
-        throw error; // Re-throw to handle in component
+      console.error('Login error:', error);
+      throw error;
     });
-}
-
-// Add other methods with named exports
-export function createNewUser(username, password) {
-    console.log("Create user button pressed!");
-    return fetch('/api/auth/create', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: username,
-            password: password
-        })
+  }
+  
+  export function registerUser(username, password) {
+    return fetch('/api/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username,
+        password
+      })
     })
-    .then((response) => response.json())
-    .catch(error => console.error('Create user error:', error));
-}
-
-// You can add more methods following the same pattern
-export function logout() {
-    console.log("Logout pressed!");
-    // Add logout logic
-}
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Registration error:', error);
+      throw error;
+    });
+  }
+  
+  export function logout(username) {
+    return fetch('/api/auth/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Logout error:', error);
+      throw error;
+    });
+  }
