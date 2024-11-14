@@ -23,54 +23,66 @@ export async function run() {
     await client.close();
   }
 }
-run().catch(console.dir);
+
 
 export async function addUser(username, password, token) {
     try {
-      await client.connect();
-      const database = client.db("FreelDB");
-      const users = database.collection("Users");
-      const auth = database.collection("Auth");
-      
-      // Add to Users collection
-      await users.insertOne({
-        username,
-        password
-      });
-  
-      // Add to Auth collection
-      await auth.insertOne({
-        username,
-        token
-      });
-  
+        await client.connect();
+        const database = client.db("FreelDB");
+        const users = database.collection("Users");
+        const auth = database.collection("Auth");
+        
+        await users.insertOne({ username, password });
+        await auth.insertOne({ username, token });
+        return true;
+    } catch (error) {
+        console.error('Add user error:', error);
+        throw error;
     } finally {
-      await client.close();
+        await client.close();
     }
-  }
-  
-  export async function findUser(username) {
-    try {
-      await client.connect();
-      const database = client.db("FreelDB");
-      const users = database.collection("Users");
-      
-      return await users.findOne({ username });
-    } finally {
-      await client.close();
-    }
-  }
+}
 
-  export async function removeAuthToken(username) {
+export async function findUser(username) {
     try {
-      await client.connect();
-      const database = client.db("FreelDB");
-      const auth = database.collection("Auth");
-      
-      const result = await auth.deleteOne({ username });
-      return result.deletedCount > 0;
+        await client.connect();
+        const database = client.db("FreelDB");
+        const users = database.collection("Users");
+        return await users.findOne({ username });
+    } catch (error) {
+        console.error('Find user error:', error);
+        throw error;
     } finally {
-      await client.close();
+        await client.close();
     }
-  }
-  
+}
+
+export async function addUserAuth(username, token) {
+    try {
+        await client.connect();
+        const database = client.db("FreelDB");
+        const auth = database.collection("Auth");
+        await auth.insertOne({ username, token });
+        return true;
+    } catch (error) {
+        console.error('Add auth error:', error);
+        throw error;
+    } finally {
+        await client.close();
+    }
+}
+
+export async function removeAuthToken(username) {
+    try {
+        await client.connect();
+        const database = client.db("FreelDB");
+        const auth = database.collection("Auth");
+        const result = await auth.deleteOne({ username });
+        return result.deletedCount > 0;
+    } catch (error) {
+        console.error('Remove auth error:', error);
+        throw error;
+    } finally {
+        await client.close();
+    }
+}
