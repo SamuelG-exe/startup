@@ -18,7 +18,6 @@ apiRouter.post('/auth/login', async (req, res) => {
         if (!username || !password) {
             return res.status(400).json({ msg: 'Missing required fields' });
         }
-
         // Check if user exists and password matches
         const user = await findUser(username);
         if (!user) {

@@ -2,9 +2,22 @@ import { Link } from 'react-router-dom';
 import { Navbar, Container } from 'react-bootstrap';
 import { FaHome, FaSearch, FaUser, FaEnvelope, FaSignInAlt } from 'react-icons/fa';
 import { useAuth } from './App';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const { isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      // Call logout from context
+      logout();
+      // Redirect to home or login page
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 
   return (
     <Navbar expand="lg" className="custom-navbar fixed-top">
@@ -34,7 +47,7 @@ function Header() {
                   <FaEnvelope /> Messages
                 </Link>
                 <button 
-                  onClick={logout} 
+                  onClick={handleLogout} 
                   className="custom-nav-link btn btn-link"
                   style={{ border: 'none', background: 'none', padding: 0 }}
                 >

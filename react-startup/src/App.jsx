@@ -8,14 +8,13 @@ import Messages from './messages/Messages';
 import Discover from './discover/pages/discover';
 import Login from './login/login';
 
+// NotFound component can be defined here or imported
 function NotFound() {
     return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
 }
 
-// Create AuthContext
 const AuthContext = createContext(null);
 
-// Create useAuth hook
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
@@ -24,52 +23,24 @@ export const useAuth = () => {
     return context;
 };
 
-
 function App() {
     const location = useLocation();
-    const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [authToken, setAuthToken] = useState(null);
+    const [userName, setUserName] = useState('');
 
-    useEffect(() => {
-        // Check if user is authenticated on component mount
-        const storedUserName = localStorage.getItem('userName');
-        setIsAuthenticated(!!storedUserName);
-    }, []);
-
-    const login = (username) => {
+    const login = (username, token) => {
+        setAuthToken(token);
         setUserName(username);
-        setIsAuthenticated(true);
-        localStorage.setItem('userName', username);
     };
 
     const logout = () => {
+        setAuthToken(null);
         setUserName('');
-        setIsAuthenticated(false);
-        localStorage.removeItem('userName');
     };
-
-    useEffect(() => {
-        switch (location.pathname) {
-            case '/':
-                document.title = 'Home';
-                break;
-            case '/discover':
-                document.title = 'Discover';
-                break;
-            case '/profile':
-                document.title = 'Profile';
-                break;
-            case '/messages':
-                document.title = 'Messages';
-                break;
-            default:
-                document.title = 'FreelConnect';
-        }
-    }, [location]);
 
     // Create auth context value
     const authValue = {
-        isAuthenticated,
+        isAuthenticated: !!authToken,
         userName,
         login,
         logout
@@ -89,11 +60,11 @@ function App() {
                         />
                         <Route 
                             path="/profile" 
-                            element={isAuthenticated ? <Profile /> : <Navigate to="/login" replace />} 
+                            element={authToken ? <Profile /> : <Navigate to="/login" replace />} 
                         />
                         <Route 
                             path="/messages" 
-                            element={isAuthenticated ? <Messages /> : <Navigate to="/login" replace />} 
+                            element={authToken ? <Messages /> : <Navigate to="/login" replace />} 
                         />
                         <Route path='*' element={<NotFound />} />
                     </Routes>

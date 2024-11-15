@@ -10,18 +10,17 @@ function Login() {
     const { login } = useAuth();
 
     const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-          const result = await loginExistingUser(username, password);
-          if (result.token) {
-              login(username);
-              navigate('/');
-              // console.log(result.token);
-          }
-      } catch (error) {
-          console.error('Login failed:', error);
-      }
-  };
+        e.preventDefault();
+        try {
+            const result = await loginExistingUser(username, password);
+            if (result.token) {
+                login(result.username, result.token);
+                navigate('/');
+            }
+        } catch (error) {
+            console.error('Login failed:', error);
+        }
+    };
 
     return (
         <main className='container-fluid bg-secondary text-center'>
