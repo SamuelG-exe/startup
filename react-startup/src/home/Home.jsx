@@ -1,6 +1,6 @@
 // Home.jsx
 import { FaSearch, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css'; //import here or in App.jsx
 
 function MusicVideo() {
@@ -67,12 +67,14 @@ function FeaturedProfiles() {
 }
 
 function CreateAccount() {
+  const navigate = useNavigate();
+
   return (
     <div className="make-account">
       <h1>find your people and share your creativity.</h1>
       <h2>create your account today</h2>
       <div className="create-button-container">
-        <button>Create Your Account</button>
+        <button onClick={() => navigate('/register')}>Create Your Account</button>
       </div>
     </div>
   );

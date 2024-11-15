@@ -7,7 +7,7 @@ import Profile from './profile/Profile';
 import Messages from './messages/Messages';
 import Discover from './discover/pages/discover';
 import Login from './login/login';
-// import Register from './login/register';
+import Register from './login/register';
 import { logout as logoutService } from './call_service/server_call_methods';
 
 // NotFound component can be defined here or imported
@@ -67,7 +67,7 @@ function App() {
                             path="/login" 
                             element={<Login />} 
                         />
-                        {/* <Route path="/register" element={<Register />}/> */}
+                        <Route path="/register" element={<Register />}/>
                         <Route 
                             path="/profile" 
                             element={authToken ? <Profile /> : <Navigate to="/login" replace />} 
