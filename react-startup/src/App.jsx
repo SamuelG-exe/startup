@@ -7,6 +7,7 @@ import Profile from './profile/Profile';
 import Messages from './messages/Messages';
 import Discover from './discover/pages/discover';
 import Login from './login/login';
+import { logout as logoutService } from './call_service/server_call_methods';
 
 // NotFound component can be defined here or imported
 function NotFound() {
@@ -33,12 +34,19 @@ function App() {
         setUserName(username);
     };
 
-    const logout = () => {
-        setAuthToken(null);
-        setUserName('');
+    const logout = async () => {
+        try {
+            // Call backend logout
+            await logoutService(userName);
+            // Clear state
+            setAuthToken(null);
+            setUserName('');
+        } catch (error) {
+            console.error('Logout failed:', error);
+            throw error;
+        }
     };
 
-    // Create auth context value
     const authValue = {
         isAuthenticated: !!authToken,
         userName,

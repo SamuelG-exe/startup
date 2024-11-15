@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../App';
-import { loginExistingUser, createNewUser, logout } from '../call_service/server_call_methods'
+import { loginExistingUser } from '../call_service/server_call_methods'
 
 function Login() {
     const [username, setUsername] = useState('');
