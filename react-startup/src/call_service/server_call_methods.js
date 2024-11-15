@@ -57,6 +57,9 @@ export function logout(username) {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        // Clear localStorage after successful backend logout
+        localStorage.removeItem('token');
+        localStorage.removeItem('userName');
         return response.json();
     })
     .catch(error => {

@@ -77,9 +77,7 @@ export async function removeAuthToken(username) {
         await client.connect();
         const database = client.db("FreelDB");
         const auth = database.collection("Auth");
-        console.log("About to delete auth!");
         const result = await auth.deleteOne({ username });
-        console.log("After alleged deletion");
         return result.deletedCount > 0;
     } catch (error) {
         console.error('Remove auth error:', error);
