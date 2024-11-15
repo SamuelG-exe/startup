@@ -1,3 +1,5 @@
+//Backend call methods
+
 export function loginExistingUser(username, password) {
     return fetch('/api/auth/login', {
         method: 'POST',
