@@ -13,7 +13,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            setError(''); // Clear any existing errors
+            setError('');
             const result = await loginExistingUser(username, password);
             if (result.token) {
                 login(result.username, result.token);
@@ -47,10 +47,16 @@ function Login() {
                 <button type="submit">Login</button>
             </form>
             {error && (
-                    <div style={{ color: 'red', marginTop: '10px' }}>
-                        {error}
-                    </div>
+                <div style={{ color: 'red', marginTop: '10px' }}>
+                    {error}
+                </div>
             )}
+            <button 
+                onClick={() => navigate('/register')}
+                style={{ marginTop: '20px' }}
+            >
+                Don't yet have an account with us? Register Here
+            </button>
         </main>
     );
 }
