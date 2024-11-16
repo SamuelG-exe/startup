@@ -51,12 +51,16 @@ apiRouter.post('/auth/register', async (req, res) => {
 
         const existingUser = await findUser(username);
         if (existingUser) {
-            return res.status(409).json({ msg: 'Username already exists' });
+            return res.status(409).json({ error: 'Username already exists' });
         }
 
         const token = uuidv4();
         await addUser(username, password, token);
-        res.status(201).json({ token });
+        // res.status(201).json({ token });
+        res.status(200).json({
+            token,
+            username: username
+        });
     } catch (error) {
         console.error('Registration error:', error);
         res.status(500).json({ msg: 'Server error' });

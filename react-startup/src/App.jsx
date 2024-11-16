@@ -33,6 +33,8 @@ function App() {
     const login = (username, token) => {
         setAuthToken(token);
         setUserName(username);
+        localStorage.setItem('token', token);
+        localStorage.setItem('userName', username);
     };
 
     const logout = async () => {
@@ -42,6 +44,8 @@ function App() {
             // Clear state
             setAuthToken(null);
             setUserName('');
+            localStorage.removeItem('token');
+            localStorage.removeItem('username');
         } catch (error) {
             console.error('Logout failed:', error);
             throw error;

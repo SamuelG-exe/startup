@@ -19,6 +19,7 @@ function Register() {
             return;
         }
         try {
+            setError(''); // Clear any existing errors
             const result = await createNewUser(username, password);
             if (result.token) {
                 login(result.username, result.token);
@@ -26,7 +27,7 @@ function Register() {
             }
         } catch (error) {
             setError(error.message);
-            console.error('Login failed:', error);
+            console.error('Register failed:', error);
         }
     };
 
