@@ -1,3 +1,5 @@
+//Backend call methods
+
 export function loginExistingUser(username, password) {
     return fetch('/api/auth/login', {
         method: 'POST',
@@ -25,7 +27,7 @@ export function loginExistingUser(username, password) {
     });
 }
 
-export function createNewUser(username, password) {
+export async function createNewUser(username, password) {
     return fetch('/api/auth/register', {
         method: 'POST',
         headers: {
@@ -33,9 +35,10 @@ export function createNewUser(username, password) {
         },
         body: JSON.stringify({ username, password })
     })
-    .then(response => {
+    .then(async response => {
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorData = await response.json();
+            throw new Error(errorData.error); 
         }
         return response.json();
     })
@@ -58,8 +61,6 @@ export function logout(username) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         // Clear localStorage after successful backend logout
-        localStorage.removeItem('token');
-        localStorage.removeItem('userName');
         return response.json();
     })
     .catch(error => {

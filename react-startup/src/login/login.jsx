@@ -6,18 +6,21 @@ import { loginExistingUser } from '../call_service/server_call_methods'
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const { login } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setError('');
             const result = await loginExistingUser(username, password);
             if (result.token) {
                 login(result.username, result.token);
                 navigate('/');
             }
         } catch (error) {
+            setError(error.message);
             console.error('Login failed:', error);
         }
     };
@@ -30,6 +33,7 @@ function Login() {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Username"
+                    style={{ margin: '5px' }}
                     required
                 />
                 <input
@@ -37,10 +41,22 @@ function Login() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
+                    style={{ margin: '5px' }}
                     required
                 />
                 <button type="submit">Login</button>
             </form>
+            {error && (
+                <div style={{ color: 'red', marginTop: '10px' }}>
+                    {error}
+                </div>
+            )}
+            <button 
+                onClick={() => navigate('/register')}
+                style={{ marginTop: '20px' }}
+            >
+                Don't yet have an account with us? Register Here
+            </button>
         </main>
     );
 }

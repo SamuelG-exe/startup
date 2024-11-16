@@ -1,6 +1,7 @@
 // Home.jsx
 import { FaSearch, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../App'; 
 import './Home.css'; //import here or in App.jsx
 
 function MusicVideo() {
@@ -66,13 +67,26 @@ function FeaturedProfiles() {
   );
 }
 
-function CreateAccount() {
+function ViewAccount() {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+
+  const handleClick = () => {
+    if (isAuthenticated) {
+      navigate('/profile');
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <div className="make-account">
       <h1>find your people and share your creativity.</h1>
-      <h2>create your account today</h2>
+      <h2>all through a couple clicks</h2>
       <div className="create-button-container">
-        <button>Create Your Account</button>
+        <button onClick={handleClick}>
+          {isAuthenticated ? 'View Your Profile' : 'View Your Account'}
+        </button>
       </div>
     </div>
   );
@@ -84,7 +98,7 @@ function Home() {
       <MusicVideo />
       <SearchSection />
       <FeaturedProfiles />
-      <CreateAccount />
+      <ViewAccount />
     </div>
   );
 }
