@@ -261,3 +261,172 @@
   background: transparent;
   border-radius: 2px;
 }
+
+.Discover-right-sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  position: sticky;
+  top: 0;
+  /* Adjust height to match three events */
+  height: auto;
+  min-height: 400px; /* Approximate height for three events */
+}
+
+.event-list {
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+}
+
+/* Navigation arrows container */
+.event-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Style for arrow buttons */
+.arrow-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
+  color: #7d0079;
+  transition: color 0.3s ease;
+}
+
+.arrow-button:hover {
+  color: #550052;
+}
+
+/* Hide original show more button */
+.show-more-button {
+  display: none;
+}
+
+.event-list li {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+/* Animation for event transitions */
+.event-list li.fade-enter {
+  opacity: 0;
+}
+
+.event-list li.fade-enter-active {
+  opacity: 1;
+}
+
+.event-list li.fade-exit {
+  opacity: 1;
+}
+
+.event-list li.fade-exit-active {
+  opacity: 0;
+}
+
+.arrow-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.event-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.arrow-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+}
+
+.arrow-button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.event-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.event-item:hover {
+  border-color: #8a2be2; /* Purple border */
+  box-shadow: 0 4px 8px rgba(138, 43, 226, 0.2); /* Purple-tinted shadow */
+  background-color: rgba(138, 43, 226, 0.02); /* Very light purple background */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.event-name {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+}
+
+.event-name strong {
+  color: #333;
+}
+
+.event-date,
+.event-venue,
+.event-price {
+  margin: 8px 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+  margin-right: 5px;
+}
+
+/* Existing navigation styles */
+.event-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0 10px;
+}
+
+.arrow-button {
+  padding: 8px 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.arrow-button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.arrow-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
