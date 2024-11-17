@@ -20,8 +20,6 @@ export async function loginExistingUser(username, password) {
             throw new Error('Invalid response from server');
         }
 
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('userName', data.username);
         return data;
     } catch (error) {
         console.error('Login error:', error);

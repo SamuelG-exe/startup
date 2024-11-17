@@ -4,34 +4,27 @@ const url = `mongodb+srv://${dbConfig.userName}:${dbConfig.password}@${dbConfig.
 
 let dbClient = null;
 
-const mongoOptions = {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    },
-    connectTimeoutMS: 5000,
-    socketTimeoutMS: 45000,
-    maxPoolSize: 10,
-    retryWrites: true
-};
-
 async function getDbConnection() {
-    try {
-        if (!dbClient) {
-            dbClient = await MongoClient.connect(url, mongoOptions);
+    if (!dbClient) {
+        try {
+            dbClient = new MongoClient(url, { 
+                tls: true, 
+                serverSelectionTimeoutMS: 3000, 
+                autoSelectFamily: false,
+            });
+            await dbClient.connect();
             console.log('MongoDB connected successfully');
             
             dbClient.on('error', (error) => {
                 console.error('MongoDB connection error:', error);
                 dbClient = null;
             });
+        } catch (error) {
+            console.error('Failed to connect to MongoDB:', error);
+            throw error;
         }
-        return dbClient;
-    } catch (error) {
-        console.error('Failed to connect to MongoDB:', error);
-        throw error;
     }
+    return dbClient;
 }
 
 async function addUser(username, password, token) {
