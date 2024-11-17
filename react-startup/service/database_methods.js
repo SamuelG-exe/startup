@@ -1,5 +1,5 @@
-import dbConfig from './dbConfig.json' assert { type: 'json' };
-import { MongoClient, ServerApiVersion } from 'mongodb';
+const dbConfig = require('./dbConfig.json'); // JSON can be directly imported without `assert` in CommonJS
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const url = `mongodb+srv://${dbConfig.userName}:${dbConfig.password}@${dbConfig.hostname}`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -11,21 +11,8 @@ const client = new MongoClient(url, {
   }
 });
 
-export async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
 
-
-export async function addUser(username, password, token) {
+async function addUser(username, password, token) {
     try {
         await client.connect();
         const database = client.db("FreelDB");
@@ -43,7 +30,7 @@ export async function addUser(username, password, token) {
     }
 }
 
-export async function findUser(username) {
+async function findUser(username) {
     try {
         await client.connect();
         const database = client.db("FreelDB");
@@ -57,7 +44,7 @@ export async function findUser(username) {
     }
 }
 
-export async function addUserAuth(username, token) {
+async function addUserAuth(username, token) {
     try {
         await client.connect();
         const database = client.db("FreelDB");
@@ -72,7 +59,7 @@ export async function addUserAuth(username, token) {
     }
 }
 
-export async function removeAuthToken(username) {
+async function removeAuthToken(username) {
     try {
         await client.connect();
         const database = client.db("FreelDB");
@@ -86,3 +73,7 @@ export async function removeAuthToken(username) {
         await client.close();
     }
 }
+
+
+module.exports = { addUser, findUser, addUserAuth, removeAuthToken };
+

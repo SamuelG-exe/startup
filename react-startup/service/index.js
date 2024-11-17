@@ -1,7 +1,7 @@
-import express from 'express';
-import cors from 'cors';
-import { v4 as uuidv4 } from 'uuid';
-import { addUser, findUser, addUserAuth, removeAuthToken } from './database_methods.js';
+const express = require('express');
+const cors = require('cors');
+const { v4: uuidv4 } = require('uuid');
+const { addUser, findUser, addUserAuth, removeAuthToken } = require('./database_methods');
 
 const app = express();
 const port = process.argv.length > 2 ? process.argv[2] : 4000;

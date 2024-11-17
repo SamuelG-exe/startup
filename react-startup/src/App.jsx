@@ -34,7 +34,7 @@ function App() {
         setAuthToken(token);
         setUserName(username);
         localStorage.setItem('token', token);
-        localStorage.setItem('userName', username);
+        localStorage.setItem('username', username);
     };
 
     const logout = async () => {
