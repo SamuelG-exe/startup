@@ -124,3 +124,29 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - Discover left sidebar uses useState
 - More implementation of this will come upon login and backend development as other locations for its current use require user class or login status
 
+## Backend Service Implementation Deliverable (11/16/24)
+*40% - Create an HTTP service using Node.js and Express*
+- Express server implementation with proper middleware configuration
+- JSON parsing middleware for request handling
+- Error handling and status code management across all endpoints
+
+*10% - Frontend served up using Express static middleware*
+- Static file serving configured using express.static('public')
+- Public directory setup for frontend asset delivery
+
+*10% - Frontend calls third party service endpoints*
+- Ticketmaster Discovery API integration for fetching local events
+- Event data retrieval including venue, date, and pricing information
+
+*20% - Backend provides service endpoints*
+- Authentication endpoints (/api/auth/login, /api/auth/register, /api/auth/logout)
+- User management endpoints with proper routing
+- Token generation using UUID for session management
+- Database interaction endpoints for user operations
+
+*20% - Frontend calls service endpoints*
+- Login functionality with comprehensive error handling
+- Registration system with validation checks
+- Logout mechanism with token management
+- Local storage management for maintaining user sessions
+- Discover page calls implimentation of Ticketmaster API
