@@ -1,70 +1,76 @@
-//Backend call methods
+// server_call_methods.js
 
-export function loginExistingUser(username, password) {
-    return fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    })
-    .then(response => {
+export async function loginExistingUser(username, password) {
+    try {
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
         if (!response.ok) {
-            if (response.status === 404) throw new Error('User not found');
-            if (response.status === 401) throw new Error('Invalid credentials');
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(data.msg || 'Login failed');
         }
-        return response.json();
-    })
-    .then(data => {
+
+        if (!data.token || !data.username) {
+            throw new Error('Invalid response from server');
+        }
+
         localStorage.setItem('token', data.token);
         localStorage.setItem('userName', data.username);
         return data;
-    })
-    .catch(error => {
+    } catch (error) {
         console.error('Login error:', error);
         throw error;
-    });
+    }
 }
 
 export async function createNewUser(username, password) {
-    return fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    })
-    .then(async response => {
+    try {
+        const response = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error); 
+            throw new Error(data.error || data.msg || 'Registration failed');
         }
-        return response.json();
-    })
-    .catch(error => {
+
+        return data;
+    } catch (error) {
         console.error('Registration error:', error);
         throw error;
-    });
+    }
 }
 
-export function logout(username) {
-    return fetch('/api/auth/logout', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username })
-    })
-    .then(response => {
+export async function logout(username) {
+    try {
+        const response = await fetch('/api/auth/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username })
+        });
+
+        const data = await response.json();
+
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(data.msg || 'Logout failed');
         }
-        // Clear localStorage after successful backend logout
-        return response.json();
-    })
-    .catch(error => {
+
+        return data;
+    } catch (error) {
         console.error('Logout error:', error);
         throw error;
-    });
+    }
 }
