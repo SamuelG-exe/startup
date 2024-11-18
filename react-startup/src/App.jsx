@@ -1,5 +1,5 @@
-import { useState, useEffect, createContext, useContext } from 'react';
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { useState, createContext, useContext } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './header';
 import Footer from './footer';
 import Home from './home/Home';
@@ -26,9 +26,8 @@ export const useAuth = () => {
 };
 
 function App() {
-    const location = useLocation();
     const [authToken, setAuthToken] = useState(null);
-    const [userName, setUserName] = useState('');
+    const [username, setUserName] = useState('');
 
     const login = (username, token) => {
         setAuthToken(token);
@@ -40,7 +39,7 @@ function App() {
     const logout = async () => {
         try {
             // Call backend logout
-            await logoutService(userName);
+            await logoutService(username);
             // Clear state
             setAuthToken(null);
             setUserName('');
@@ -54,7 +53,7 @@ function App() {
 
     const authValue = {
         isAuthenticated: !!authToken,
-        userName,
+        username,
         login,
         logout
     };
