@@ -45,7 +45,8 @@ apiRouter.post('/auth/login', async (req, res) => {
         return res.status(200).json({
             success: true,
             token,
-            username: user.username
+            username: user.username,
+            contentType: user.contentType
         });
     } catch (error) {
         console.error('Login error:', error);
@@ -84,7 +85,8 @@ apiRouter.post('/auth/register', async (req, res) => {
         return res.status(200).json({
             success: true,
             token,
-            username
+            username,
+            contentType
         });
     } catch (error) {
         console.error('Registration error:', error);

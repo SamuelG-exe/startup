@@ -28,10 +28,12 @@ export const useAuth = () => {
 function App() {
     const [authToken, setAuthToken] = useState(null);
     const [username, setUserName] = useState('');
+    const [contentType, setContentType] = useState(null);
 
-    const login = (username, token) => {
+    const login = (username, token, contentType) => {
         setAuthToken(token);
         setUserName(username);
+        setContentType(contentType);
         localStorage.setItem('token', token);
         localStorage.setItem('username', username);
     };
@@ -43,6 +45,7 @@ function App() {
             // Clear state
             setAuthToken(null);
             setUserName('');
+            setContentType(null);
             localStorage.removeItem('token');
             localStorage.removeItem('username');
         } catch (error) {
@@ -54,6 +57,7 @@ function App() {
     const authValue = {
         isAuthenticated: !!authToken,
         username,
+        contentType,
         login,
         logout
     };

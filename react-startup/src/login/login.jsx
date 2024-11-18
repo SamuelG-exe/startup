@@ -16,7 +16,7 @@ function Login() {
             setError('');
             const result = await loginExistingUser(username, password);
             if (result.token) {
-                login(result.username, result.token);
+                login(result.username, result.token, result.contentType);
                 navigate('/');
             }
         } catch (error) {

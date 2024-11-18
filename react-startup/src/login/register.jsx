@@ -23,7 +23,7 @@ function Register() {
             setError(''); // Clear any existing errors
             const result = await createNewUser(username, password, contentType);
             if (result.token) {
-                login(result.username, result.token);
+                login(result.username, result.token, result.contentType);
                 navigate('/');
             }
         } catch (error) {
