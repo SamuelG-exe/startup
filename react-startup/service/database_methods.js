@@ -27,14 +27,14 @@ async function getDbConnection() {
     return dbClient;
 }
 
-async function addUser(username, password, token) {
+async function addUser(username, password, token, contentType) {
     try {
         const client = await getDbConnection();
         const database = client.db("FreelDB");
         const users = database.collection("Users");
         const auth = database.collection("Auth");
         
-        await users.insertOne({ username, password });
+        await users.insertOne({ username, password, contentType });
         await auth.insertOne({ 
             username, 
             token,

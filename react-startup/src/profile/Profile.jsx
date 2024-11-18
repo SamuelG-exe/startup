@@ -6,7 +6,7 @@ import { useAuth } from '../App'; // Adjust the import path based on your file s
 
 
 const Profile = () => {
-  const { userName } = useAuth();
+  const { username } = useAuth();
 
 
   return (
@@ -14,7 +14,7 @@ const Profile = () => {
     <div>
   <div className="profile-container">
       <div className="image-box">
-      <div className="username">{userName || 'Username'}</div>
+      <div className="username">{username || 'Username'}</div>
         <img src="https://via.placeholder.com/150" alt="Profile" />
         <Reviews />
       </div>

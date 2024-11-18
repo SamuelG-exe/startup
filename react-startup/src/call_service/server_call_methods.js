@@ -27,14 +27,14 @@ export async function loginExistingUser(username, password) {
     }
 }
 
-export async function createNewUser(username, password) {
+export async function createNewUser(username, password, contentType) {
     try {
         const response = await fetch('/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password, contentType })
         });
 
         const data = await response.json();

@@ -60,7 +60,7 @@ apiRouter.post('/auth/login', async (req, res) => {
 // Register route
 apiRouter.post('/auth/register', async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password, contentType } = req.body;
         
         if (!username || !password) {
             return res.status(400).json({ 
@@ -78,7 +78,7 @@ apiRouter.post('/auth/register', async (req, res) => {
         }
 
         const token = uuidv4();
-        await addUser(username, password, token);
+        await addUser(username, password, token, contentType);
         
         console.log('Register successful for user:', username);
         return res.status(200).json({

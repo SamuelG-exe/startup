@@ -6,6 +6,7 @@ import { createNewUser } from '../call_service/server_call_methods'
 function Register() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [contentType, setContentType] = useState('Music');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Register() {
         }
         try {
             setError(''); // Clear any existing errors
-            const result = await createNewUser(username, password);
+            const result = await createNewUser(username, password, contentType);
             if (result.token) {
                 login(result.username, result.token);
                 navigate('/');
@@ -40,6 +41,7 @@ function Register() {
                 gap: '10px',
                 padding: '20px'
             }}>
+                <h6>Provide the profile basics</h6>
                 <input
                     type="text"
                     value={username}
@@ -73,6 +75,15 @@ function Register() {
                     }}
                     required
                 />
+                <h6>Select your type of content you'll be collaborating on!</h6>
+                <select 
+                    value={contentType}
+                    onChange={(e) => setContentType(e.target.value)}
+                >
+                    <option value="Music">Music</option>
+                    <option value="Video">Video</option>
+                    <option value="Photography">Photography</option>
+                </select>
                 <button 
                     type="submit"
                     style={{
