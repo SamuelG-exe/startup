@@ -2,12 +2,18 @@
 import React from 'react';
 import '../../styles/discover.css';
 
-const MainContent = () => {
+const MainContent = ({ selectedCategory, setSelectedCategory }) => {
   return (
     <div className="Discover-main-content">
       <div className="Discover-search">
-        {['Music', 'Video', 'Photo'].map((category, index) => (
-          <h2 key={index}>{category}</h2>
+        {['Music', 'Video', 'Photo'].map((category) => (
+          <button
+            key={category}
+            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </button>
         ))}
       </div>
       

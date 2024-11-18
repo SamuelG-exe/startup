@@ -1,23 +1,40 @@
 // components/Layout/LeftSidebar.jsx
 import React from 'react';
 import PriceRangeSlider from './PriceRangeSlider';
-
 import '../../styles/discover.css';
 
-const LeftSidebar = () => {
+const LeftSidebar = ({ selectedCategory }) => {
+  const getFilterOptions = () => {
+    switch (selectedCategory) {
+      case 'Music':
+        return ['Drums', 'strings', 'winds'];
+      case 'Video':
+        return ['wedding', 'music video', 'creative project'];
+      case 'Photo':
+        return ['wedding', 'graduation', 'birthday'];
+      default:
+        return [];
+    }
+  };
+
   return (
     <div className="Discover-left-sidebar">
       <h3>Filters</h3>
       
       <div className="filter-item">
         <h4>Location</h4>
-        <input type="text" placeholder="Enter Location" />
+        <select className="location-dropdown">
+          <option value="">Select Location</option>
+          <option value="salt-lake">Salt Lake</option>
+          <option value="austin">Austin</option>
+          <option value="los-angeles">Los Angeles</option>
+        </select>
       </div>
 
       <div className="filter-item">
-        <h4>Instrument type</h4>
+        <h4>{selectedCategory} Type</h4>
         <div className="checkbox-container">
-          {['Drums', 'strings', 'winds'].map((option, index) => (
+          {getFilterOptions().map((option, index) => (
             <label key={index} className="checkbox-label">
               <input type="checkbox" value={option} />
               {option}

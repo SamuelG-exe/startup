@@ -30,7 +30,13 @@ function SearchSection() {
           <option>Video</option>
           <option>Photography</option>
         </select>
-        <input type="text" placeholder="Enter your city" />
+        <select className="location-dropdown">
+          <option value="">Select Location</option>
+          <option value="salt-lake">Salt Lake</option>
+          <option value="austin">Austin</option>
+          <option value="los-angeles">Los Angeles</option>
+        </select>
+      
         <Link to="/discover">
           <FaSearch size={30} />
         </Link>
