@@ -17,7 +17,7 @@ const Profile = () => {
       <div className="image-box">
       <div className="username">{username || 'Username'}</div>
         <img src="https://via.placeholder.com/150" alt="Profile" />
-        <div className="content-genre">Content Type: {contentType || 'testing'}</div>
+        <div className="content-genre" >Content Type: {contentType || 'testing'}</div>
         <Reviews />
       </div>
 

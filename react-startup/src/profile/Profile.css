@@ -8,6 +8,18 @@
     align-items: flex-start;
 
 }
+
+.username {
+  color:#290740; 
+  font-weight:bold; 
+  text-decoration:underline;
+  font-size: 20px;
+}
+
+.content-genre{
+  font-weight:bold; 
+  font-size: 20px;
+}
   
   .profile-info {
    display: flex;
