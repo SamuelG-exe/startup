@@ -150,3 +150,36 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - Logout mechanism with token management
 - Local storage management for maintaining user sessions
 - Discover page calls implimentation of Ticketmaster API
+
+
+## Startup Login (11/20/24)
+*20% - Supports new user registration*
+- Registration system fully implemented
+    - Validates new users against existing database entries
+    - Creates secure user profiles in MongoDB
+    - Implements input validation for username and password requirements
+
+*20% - Supports existing user authentication and logout*
+- Robust login system integrated with MongoDB database
+- UUID authentication implemented
+    - Tokens managed for secure session handling
+    - Automatic token expiration for enhanced security (24hrs)
+    - Clean logout process with token invalidation
+
+*20% - Stores application data in MongoDB*
+- Successfully connected to MongoDB Atlas cluster
+- Implements efficient data schema design
+- Maintains persistent data storage for user information
+- Includes error handling for database operations
+
+*20% - Stores and retrieves credentials in MongoDB*
+- Secure storage of user credentials using industry standards
+- Passwords hashed using bcrypt for maximum security
+- Secure credential retrieval process for authentication
+
+*20% - Restricts application functionality based upon authentication*
+- Protected routes implemented for authenticated users only
+- Profile page access restricted to logged-in users
+- Middleware verification of valid authentication tokens
+- Redirects unauthorized users to login page
+- Session persistence handled properly
