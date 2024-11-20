@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 const { addUser, findUser, addUserAuth, removeAuthToken } = require('./database_methods');
+const bcrypt = require('bcrypt');
+
 
 const app = express();
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -32,7 +34,8 @@ apiRouter.post('/auth/login', async (req, res) => {
             });
         }
 
-        if (user.password !== password) {
+        const isValidPassword = await bcrypt.compare(password, user.password);
+        if (!isValidPassword) {
             return res.status(401).json({ 
                 success: false,
                 msg: 'Invalid credentials' 
@@ -78,8 +81,9 @@ apiRouter.post('/auth/register', async (req, res) => {
             });
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10);
         const token = uuidv4();
-        await addUser(username, password, token, contentType);
+        await addUser(username, hashedPassword, token, contentType);
         
         console.log('Register successful for user:', username);
         return res.status(200).json({
