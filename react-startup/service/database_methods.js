@@ -96,4 +96,30 @@ async function removeAuthToken(username) {
     }
 }
 
-module.exports = { addUser, findUser, addUserAuth, removeAuthToken };
+async function getUserByToken(token) {
+    try {
+        const client = await getDbConnection();
+        const database = client.db("FreelDB");
+        const auth = database.collection("Auth").findOne({ token });
+        
+        if (!auth) {
+            return null;
+        }
+
+        if (new Date(auth.expiresAt) < new Date()) {
+            // Token has expired
+            await database.collection('Auth').deleteOne({ token }); // Optionally clean up expired token
+            return null;
+        }
+
+        return auth.username;
+    } catch (error) {
+        console.error('Error getting user by token:', error);
+        throw error;
+    }
+}
+
+
+
+
+module.exports = { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken };

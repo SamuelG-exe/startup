@@ -72,3 +72,31 @@ export async function logout(username) {
         throw error;
     }
 }
+
+// export async function getContent(username){
+
+// }
+
+export async function addContent(imageLink, authToken) {
+    try {
+        const response = await fetch('/api/auth/content/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
+            },
+            body: JSON.stringify({ imageLink })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || data.msg || 'Failed to add content');
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Content addition error:', error);
+        throw error;
+    }
+}
