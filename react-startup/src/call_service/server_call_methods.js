@@ -73,9 +73,28 @@ export async function logout(username) {
     }
 }
 
-// export async function getContent(username){
+export async function getContent(username) {
+    try {
+        const response = await fetch(`/api/auth/content/get?username=${encodeURIComponent(username)}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-// }
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || data.msg || 'Failed to fetch content');
+        }
+
+        return data; // Return the retrieved content
+    } catch (error) {
+        console.error('Content retrieval error:', error);
+        throw error;
+    }
+}
+
 
 export async function addContent(imageLink, authToken) {
     try {
@@ -94,7 +113,7 @@ export async function addContent(imageLink, authToken) {
             throw new Error(data.error || data.msg || 'Failed to add content');
         }
 
-        return data;
+        return data; 
     } catch (error) {
         console.error('Content addition error:', error);
         throw error;

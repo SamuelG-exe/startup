@@ -58,6 +58,7 @@ function App() {
         isAuthenticated: !!authToken,
         username,
         contentType,
+        authToken: authToken,
         login,
         logout
     };

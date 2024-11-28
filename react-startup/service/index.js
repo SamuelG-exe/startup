@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
-const { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken } = require('./database_methods');
+const { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent } = require('./database_methods');
 const bcrypt = require('bcrypt');
 
 
@@ -145,62 +145,85 @@ apiRouter.post('/auth/logout', async (req, res) => {
 apiRouter.post('/auth/content/add', async (req, res) => {
     console.log("ready to add image!");
     
-    // try {
-    //     const { imageLink } = req.body;
-    //     const authToken = req.headers.authorization?.split(' ')[1];
+    try {
+        const { imageLink } = req.body;
+        const authToken = req.headers.authorization?.split(' ')[1];
 
-    //     // Validate input and authorization
-    //     if (!imageLink) {
-    //         return res.status(400).json({
-    //             success: false,
-    //             msg: 'No image link provided'
-    //         });
-    //     }
+        // Validate input and authorization
+        if (!imageLink) {
+            return res.status(400).json({
+                success: false,
+                msg: 'No image link provided'
+            });
+        }
 
-    //     if (!authToken) {
-    //         return res.status(401).json({
-    //             success: false,
-    //             msg: 'No authorization token provided'
-    //         });
-    //     }
+        if (!authToken) {
+            return res.status(401).json({
+                success: false,
+                msg: 'No authorization token provided'
+            });
+        }
 
-    //     // Get username from token (assuming you store username-token pairs)
-    //     const username = await getUserByToken(authToken);
-    //     if (!username) {
-    //         return res.status(401).json({
-    //             success: false,
-    //             msg: 'Invalid or expired token'
-    //         });
-    //     }
+        // Get username from token (assuming you store username-token pairs)
+        const username = await getUserByToken(authToken);
+        console.log("Username found is ", username);
+        if (!username) {
+            return res.status(401).json({
+                success: false,
+                msg: 'Invalid or expired token'
+            });
+        }
+        console.log("username found was: ", username);
 
-    //     // Validate URL format
-    //     try {
-    //         new URL(imageLink);
-    //     } catch (error) {
-    //         return res.status(400).json({
-    //             success: false,
-    //             msg: 'Invalid image URL format'
-    //         });
-    //     }
+        // Validate URL format
+        try {
+            new URL(imageLink);
+        } catch (error) {
+            return res.status(400).json({
+                success: false,
+                msg: 'Invalid image URL format'
+            });
+        }
 
-    //     // Add content and get updated content array
-    //     const updatedContent = await addUserContent(username, imageLink); //IMPLEMENT DATABASE METHOD FOR THIS
+        // Add content and get updated content array
+        await addUserContent(username, imageLink);
 
-    //     console.log('Content added successfully for user:', username);
-    //     return res.status(200).json({
-    //         success: true,
-    //         content: updatedContent
-    //     });
+        console.log('Content added successfully for user:', username);
+        return res.status(200).json({
+            success: true,
+        });
 
-    // } catch (error) {
-    //     console.error('Content addition error:', error);
-    //     return res.status(500).json({
-    //         success: false,
-    //         msg: 'Server error',
-    //         error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
-    //     });
-    // }
+    } catch (error) {
+        console.error('Content addition error:', error);
+        return res.status(500).json({
+            success: false,
+            msg: 'Server error',
+            error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+        });
+    }
 
+});
+
+
+apiRouter.get('/auth/content/get', async (req, res) => {
+    const { username } = req.query; // Extract username from query parameters
+
+    if (!username) {
+        return res.status(400).json({ error: 'Username is required' });
+    }
+
+    try {
+        const content = await getUserContent(username); // Call your database method
+        
+        if (!content || content.length === 0) {
+            return res.status(404).json({ error: 'No content found for the specified user' });
+        }
+
+        res.status(200).json(content); // Send back the retrieved content
+    } catch (error) {
+        console.error('Error fetching user content:', error);
+        res.status(500).json({ error: 'Failed to fetch user content' });
+    }
 });
 
 

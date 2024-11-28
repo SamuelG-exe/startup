@@ -33,6 +33,8 @@ async function addUser(username, password, token, contentType) {
         const database = client.db("FreelDB");
         const users = database.collection("Users");
         const auth = database.collection("Auth");
+        const content = database.collection("Content");
+        const content_list = [];
         
         await users.insertOne({ username, password, contentType });
         await auth.insertOne({ 
@@ -41,6 +43,7 @@ async function addUser(username, password, token, contentType) {
             createdAt: new Date(),
             expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000) // 24 hours
         });
+        await content.insertOne({ username, content_list })
         return true;
     } catch (error) {
         console.error('Add user error:', error);
@@ -100,9 +103,10 @@ async function getUserByToken(token) {
     try {
         const client = await getDbConnection();
         const database = client.db("FreelDB");
-        const auth = database.collection("Auth").findOne({ token });
+        const auth = database.collection("Auth");
+        const result = await auth.findOne({ token });
         
-        if (!auth) {
+        if (!result) {
             return null;
         }
 
@@ -112,14 +116,47 @@ async function getUserByToken(token) {
             return null;
         }
 
-        return auth.username;
+        return result.username;
     } catch (error) {
         console.error('Error getting user by token:', error);
         throw error;
     }
 }
 
+async function addUserContent(username, imageLink) {
+    try {
+        const client = await getDbConnection();
+        const database = client.db("FreelDB");
+        
+        const result = await database.collection("Content").updateOne(
+            { username: username },
+            { $push: { content_list: imageLink } }
+        );
+
+        if (result.modifiedCount === 0) {
+            throw new Error("No document was updated");
+        }
+
+        return result.modifiedCount;
+        
+    } catch (error) {
+        console.error('Error adding image to stored content:', error);
+        throw error;
+    }
+}
+
+async function getUserContent(username) {
+    const client = await getDbConnection();
+    const database = client.db("FreelDB");
+    const content = database.collection("Content");
+    
+    const result = await content.findOne(
+        { username: username },
+        { projection: { content_list: 1, _id: 0 } }
+    );
+    
+    return result ? result.content_list : null;
+}
 
 
-
-module.exports = { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken };
+module.exports = { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent };

@@ -1,57 +1,78 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import './Profile.css';
 import '../App 2.css';
 import Reviews from './components/Reviews';
 import { useAuth } from '../App'; 
-import { addContent } from '../call_service/server_call_methods';
-
-
+import { addContent, getContent } from '../call_service/server_call_methods';
 
 const Profile = () => {
   const { username, authToken, contentType } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [imageLink, setImageLink] = useState('');
+  const [currProfileContent, setCurrProfileContent] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchContent() {
+      try {
+        const data = await getContent(username);
+        setCurrProfileContent(data);
+      } catch (error) {
+        console.error('Error fetching content:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    if (username) {
+      fetchContent();
+    }
+  }, [username]);
 
   const handleContentSubmit = async (e) => {
     e.preventDefault();
-    // Handle the submission of the image link here
     console.log('Submitted image link:', imageLink);
-    await addContent(imageLink, authToken); //will wait for something to return, haven't implemented that yet, but have hit the endpoint!
+    console.log('Submitted with token:', authToken);
+    await addContent(imageLink, authToken); 
+    setCurrProfileContent([...currProfileContent, imageLink]);
+    console.log("Current image links = ", currProfileContent);
     setImageLink('');
     setShowModal(false);
   };
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
-    <div>
-  <div className="profile-container">
-      <div className="image-box">
-      <div className="username">{username || 'Username'}</div>
-        <img src="https://via.placeholder.com/150" alt="Profile" />
-        <div className="content-genre" >Content Type: {contentType || 'testing'}</div>
-        <Reviews />
+      <div>
+        <div className="profile-container">
+          <div className="image-box">
+            <div className="username">{username || 'Username'}</div>
+            <img src="https://via.placeholder.com/150" alt="Profile" />
+            <div className="content-genre">Content Type: {contentType || 'testing'}</div>
+            <Reviews />
+          </div>
+
+          <div className="description-box">
+            <div className="about-box">
+              About section content
+            </div>
+            <div className="contact-details">
+              <div className="contact-item">Contact 1</div>
+              <div className="contact-item">Contact 2</div>
+              <div className="contact-item">Contact 3</div>
+            </div>
+          </div>
+          
+          <div className="events-attending">
+            Events section
+          </div>
+        </div>
       </div>
 
-      
-      <div className="description-box">
-        <div className="about-box">
-          About section content
-        </div>
-        <div className="contact-details">
-          <div className="contact-item">Contact 1</div>
-          <div className="contact-item">Contact 2</div>
-          <div className="contact-item">Contact 3</div>
-        </div>
-      </div>
-      
-      <div className="events-attending">
-        Events section
-      </div>
-    </div>
-  </div>
-
-  <div className="featured-wrapper">
+      <div className="featured-wrapper">
         <div className="featured-content">
           <div className="featured-header">
             <h2>Featured Content</h2>
@@ -63,21 +84,22 @@ const Profile = () => {
             </button>
           </div>
           <div className="content-box-container">
-            <div className="content-box">Content 1</div>
-            <div className="content-box">Content 2</div>
-            <div className="content-box">Content 3</div>
+            {currProfileContent.map((content, index) => (
+              <div key={index} className="content-box">
+                <img src={content} alt={`Content ${index + 1}`} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-          <h3 style={{ backgroundColor: 'lavender', borderRadius: '10px', padding: '10px' }}>
-            Add New Image
-          </h3>            
-              <form onSubmit={handleContentSubmit}>
+            <h3 style={{ backgroundColor: 'lavender', borderRadius: '10px', padding: '10px' }}>
+              Add New Image
+            </h3>            
+            <form onSubmit={handleContentSubmit}>
               <div className="form-group">
                 <label htmlFor="imageLink"></label>
                 <input
@@ -106,8 +128,7 @@ const Profile = () => {
           </div>
         </div>
       )}
-
-</>
+    </>
   );
 };
 
