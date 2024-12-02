@@ -142,9 +142,7 @@ apiRouter.post('/auth/logout', async (req, res) => {
 });
 
 
-apiRouter.post('/auth/content/add', async (req, res) => {
-    console.log("ready to add image!");
-    
+apiRouter.post('/auth/content/add', async (req, res) => {    
     try {
         const { imageLink } = req.body;
         const authToken = req.headers.authorization?.split(' ')[1];
@@ -166,7 +164,6 @@ apiRouter.post('/auth/content/add', async (req, res) => {
 
         // Get username from token (assuming you store username-token pairs)
         const username = await getUserByToken(authToken);
-        console.log("Username found is ", username);
         if (!username) {
             return res.status(401).json({
                 success: false,
