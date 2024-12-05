@@ -158,5 +158,24 @@ async function getUserContent(username) {
     return result ? result.content_list : null;
 }
 
+async function getStoredProfiles(contentType){
+    const client = await getDbConnection();
+    const database = client.db("FreelDB");
+    const profiles = database.collection("Users");
 
-module.exports = { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent };
+    try {
+        // console.log("The received contentType = ", contentType);
+        const matchingProfiles = await profiles.find({ contentType }).toArray();
+        // console.log("Found profiles are: ", matchingProfiles);
+
+        return matchingProfiles; // Return the array of matching profiles
+    } 
+    catch (error) {
+        console.error("Error fetching profiles with contentType:", contentType, error);
+        throw error; // Re-throw the error for the caller to handle
+    }
+
+}
+
+
+module.exports = { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent, getStoredProfiles };

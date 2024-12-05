@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Profile.css';
 import '../App 2.css';
 import Reviews from './components/Reviews';
@@ -6,7 +7,10 @@ import { useAuth } from '../App';
 import { addContent, getContent } from '../call_service/server_call_methods';
 
 const Profile = () => {
-  const { username, authToken, contentType } = useAuth();
+  const { username: currentUser, authToken, contentType: userContentType } = useAuth();
+  const location = useLocation();
+  const { username, contentType, isViewOnly } = location.state || {};
+  
   const [showModal, setShowModal] = useState(false);
   const [imageLink, setImageLink] = useState('');
   const [currProfileContent, setCurrProfileContent] = useState([]);
@@ -15,7 +19,8 @@ const Profile = () => {
   useEffect(() => {
     async function fetchContent() {
       try {
-        const data = await getContent(username);
+        const profileUsername = isViewOnly ? username : currentUser;
+        const data = await getContent(profileUsername);
         setCurrProfileContent(data);
       } catch (error) {
         console.error('Error fetching content:', error);
@@ -24,10 +29,10 @@ const Profile = () => {
       }
     }
     
-    if (username) {
+    if (isViewOnly ? username : currentUser) {
       fetchContent();
     }
-  }, [username]);
+  }, [username, currentUser, isViewOnly]);
 
   const handleContentSubmit = async (e) => {
     e.preventDefault();
@@ -44,14 +49,17 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
+  const displayUsername = isViewOnly ? username : currentUser;
+  const displayContentType = isViewOnly ? contentType : userContentType;
+
   return (
     <>
       <div>
         <div className="profile-container">
           <div className="image-box">
-            <div className="username">{username || 'Username'}</div>
+            <div className="username">{displayUsername || 'Username'}</div>
             <img src="https://via.placeholder.com/150" alt="Profile" />
-            <div className="content-genre">Content Type: {contentType || 'testing'}</div>
+            <div className="content-genre">Content Type: {displayContentType || 'testing'}</div>
             <Reviews />
           </div>
 
@@ -76,12 +84,14 @@ const Profile = () => {
         <div className="featured-content">
           <div className="featured-header">
             <h2>Featured Content</h2>
-            <button 
-              className="btn btn-primary add-content-btn"
-              onClick={() => setShowModal(true)}
-            >
-              Add Content
-            </button>
+            {!isViewOnly && (
+              <button 
+                className="btn btn-primary add-content-btn"
+                onClick={() => setShowModal(true)}
+              >
+                Add Content
+              </button>
+            )}
           </div>
           <div className="content-box-container">
             {currProfileContent.map((content, index) => (

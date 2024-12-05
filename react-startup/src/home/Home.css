@@ -47,10 +47,11 @@
   box-sizing: border-box;
 }
 
-.featured-header {
+.feature-header {
   border: 1px solid black;
   padding: 10px;
   margin-bottom: 20px;
+  font-size: 40px;
   text-align: center;
 }
 

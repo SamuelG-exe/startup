@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
-const { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent } = require('./database_methods');
+const { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent, getStoredProfiles } = require('./database_methods');
 const bcrypt = require('bcrypt');
 
 
@@ -211,10 +211,6 @@ apiRouter.get('/auth/content/get', async (req, res) => {
 
     try {
         const content = await getUserContent(username); // Call your database method
-        
-        if (!content || content.length === 0) {
-            return res.status(404).json({ error: 'No content found for the specified user' });
-        }
 
         res.status(200).json(content); // Send back the retrieved content
     } catch (error) {
@@ -223,6 +219,24 @@ apiRouter.get('/auth/content/get', async (req, res) => {
     }
 });
 
+
+
+apiRouter.get('/auth/discover/profiles', async (req, res) => {
+    const { contentType } = req.query; // Extract username from query parameters
+
+    if (!contentType) {
+        return res.status(400).json({ error: 'Choice of contentType is required' });
+    }
+
+    try {
+        const profiles = await getStoredProfiles(contentType); // Call your database method
+
+        res.status(200).json(profiles); // Send back the retrieved content
+    } catch (error) {
+        console.error('Error fetching profiles of selected contentType:', error);
+        res.status(500).json({ error: 'Failed to fetch profiles of selected contentType' });
+    }
+});
 
 
 

@@ -75,6 +75,7 @@ export async function logout(username) {
 
 export async function getContent(username) {
     try {
+        console.log("Fetching content for user = ", username);
         const response = await fetch(`/api/auth/content/get?username=${encodeURIComponent(username)}`, {
             method: 'GET',
             headers: {
@@ -116,6 +117,36 @@ export async function addContent(imageLink, authToken) {
         return data; 
     } catch (error) {
         console.error('Content addition error:', error);
+        throw error;
+    }
+}
+
+export async function getProfiles(contentType) {
+    try {
+        const response = await fetch(`/api/auth/discover/profiles?contentType=${encodeURIComponent(contentType)}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json', // Inform server about the content type
+            },
+        });
+
+        // Parse the response to JSON
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || data.msg || 'Failed to fetch profiles');
+        }
+
+        if (!Array.isArray(data)) {
+            throw new Error('Unexpected data format: expected an array of profiles.');
+        }
+
+        return data; // Return the profiles array
+    } catch (error) {
+        // Log the error for debugging purposes
+        console.error('Profile retrieval error:', error.message || error);
+
+        // Re-throw the error to let the caller handle it
         throw error;
     }
 }

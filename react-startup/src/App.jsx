@@ -68,24 +68,26 @@ function App() {
             <div className="d-flex flex-column min-vh-100">
                 <Header />
                 <main className="flex-grow-1">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/discover" element={<Discover />} />
-                        <Route 
-                            path="/login" 
-                            element={<Login />} 
-                        />
-                        <Route path="/register" element={<Register />}/>
-                        <Route 
-                            path="/profile" 
-                            element={authToken ? <Profile /> : <Navigate to="/login" replace />} 
-                        />
-                        <Route 
-                            path="/messages" 
-                            element={authToken ? <Messages /> : <Navigate to="/login" replace />} 
-                        />
-                        <Route path='*' element={<NotFound />} />
-                    </Routes>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/discover" element={<Discover />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />}/>
+                    <Route 
+                        path="/profile" 
+                        element={authToken ? <Profile /> : <Navigate to="/login" replace />} 
+                    />
+                    {/* Add this new route for viewing other profiles */}
+                    <Route 
+                        path="/profile/:username" 
+                        element={<Profile />} 
+                    />
+                    <Route 
+                        path="/messages" 
+                        element={authToken ? <Messages /> : <Navigate to="/login" replace />} 
+                    />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
                 </main>
                 <Footer />
             </div>

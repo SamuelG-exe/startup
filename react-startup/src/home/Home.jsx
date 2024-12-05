@@ -2,7 +2,8 @@
 import { FaSearch, FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../App'; 
-import './Home.css'; //import here or in App.jsx
+import { useState } from 'react';
+import './Home.css'; 
 
 function MusicVideo() {
   return (
@@ -16,6 +17,15 @@ function MusicVideo() {
 }
 
 function SearchSection() {
+  const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  const handleSearch = () => {
+    navigate('/discover', { 
+      state: { selectedCategory } 
+    });
+  };
+
   return (
     <div className="search-section">
       <h1>make creativity collaborative</h1>
@@ -25,33 +35,44 @@ function SearchSection() {
         </Link>      
       </div>
       <div className="search-controls">
-        <select>
-          <option>Music</option>
-          <option>Video</option>
-          <option>Photography</option>
+        <select 
+          value={selectedCategory} 
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="">Select Category</option>
+          <option value="Music">Music</option>
+          <option value="Video">Video</option>
+          <option value="Photography">Photography</option>
         </select>
-        <select className="location-dropdown">
-          <option value="">Select Location</option>
-          <option value="salt-lake">Salt Lake</option>
-          <option value="austin">Austin</option>
-          <option value="los-angeles">Los Angeles</option>
-        </select>
-      
-        <Link to="/discover">
+        <div onClick={handleSearch}>
           <FaSearch size={30} />
-        </Link>
+        </div>
       </div>
     </div>
   );
 }
 
-function ProfileBox({ image, alt }) {
+function ProfileBox({ image, alt, profile, contentType }) {
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate(`/profile/${profile}`, { 
+        state: { 
+            username: profile,
+            contentType: contentType,
+            isViewOnly: true 
+        }
+    });
+  };
+  
   return (
-      <div className="profile-slideshow">
+      <div className="profile-slideshow"
+      onClick={() => handleProfileClick(profile, contentType)}
+      >
         <img src={image} alt={alt} />
         <div className="profile-info">
           <FaUser size={24} />
-          <span>Profile</span>
+          <span>{profile}</span>
         </div>
       </div>
   );
@@ -60,14 +81,14 @@ function ProfileBox({ image, alt }) {
 function FeaturedProfiles() {
   return (
     <div className="featured-section">
-      <div className="featured-header">
+      <div className="feature-header">
         <p>Featured Profiles</p>
-        <p>(grab off user's IP Address, pull content from queried most followed users in database)</p>
+        {/* <p>(grab off user's IP Address, pull content from queried most followed users in database)</p> */}
       </div>
       <div className="featured-users">
-        <ProfileBox image="/makingmusic.jpg" alt="music" />
-        <ProfileBox image="/photoshoot.png" alt="photo" />
-        <ProfileBox image="/videography.jpg" alt="video" />
+        <ProfileBox image="/makingmusic.jpg" alt="music" profile="mrMusic" contentType="Music" />
+        <ProfileBox image="/photoshoot.png" alt="photo" profile="photoGal" contentType="Photography" />
+        <ProfileBox image="/videography.jpg" alt="video" profile="mrVideo" contentType="Video" />
       </div>
     </div>
   );
