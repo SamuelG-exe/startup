@@ -5,18 +5,18 @@ import ConversationList from './components/ConversationList';
 import ChatWindow from './components/ChatWindow';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/Messages.css';
+import { useAuth } from '../App'; 
 
-const Messages = () => {
-  const [selectedConversation, setSelectedConversation] = useState(null);
 
-  // Mock conversations data
-  const conversations = [
-    { id: 1, name: 'John Mayer', messages: [] },
-    { id: 2, name: 'Rihanna', messages: [] },
-    { id: 3, name: "Rihanna's Cousin", messages: [] },
-    { id: 4, name: 'Jeve Stobs (not dead)', messages: [] },
-    { id: 5, name: 'Ken Burns', messages: [] },
-  ];
+  const Messages = () => {
+    const [conversations, setConversations] = useState([]);
+    const [selectedConversation, setSelectedConversation] = useState(null);
+    const { username } = useAuth(); // Get current user from context
+
+  
+    const handleSelectConversation = (conversation) => {
+      setSelectedConversation(conversation);
+    };
 
   return (
     <Container fluid>
@@ -31,8 +31,9 @@ const Messages = () => {
         <Col md={3}>
           <ConversationList 
             conversations={conversations}
-            onSelectConversation={setSelectedConversation}
+            onSelectConversation={handleSelectConversation}
             selectedConversation={selectedConversation}
+            username={username}
           />
         </Col>
         <Col md={9}>

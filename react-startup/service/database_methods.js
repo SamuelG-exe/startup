@@ -177,5 +177,27 @@ async function getStoredProfiles(contentType){
 
 }
 
+async function getAllOtherUsernames(currentUsername) {
+    try {
+        const client = await getDbConnection();
+        const database = client.db("FreelDB");
+        const users = database.collection("Users");
+        
+        // Find all documents except the current user
+        const result = await users.find(
+            { username: { $ne: currentUsername } }, // $ne means "not equal"
+            { projection: { username: 1, _id: 0 } }
+        ).toArray();
+        
+        // Map the results to an array of just usernames
+        const usernames = result.map(user => user.username);
+        
+        return usernames;
+    } catch (error) {
+        console.error('Error getting other usernames:', error);
+        throw error;
+    }
+}
 
-module.exports = { addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent, getStoredProfiles };
+
+module.exports = {getAllOtherUsernames, addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent, getStoredProfiles };

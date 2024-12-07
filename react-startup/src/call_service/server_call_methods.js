@@ -150,3 +150,30 @@ export async function getProfiles(contentType) {
         throw error;
     }
 }
+
+export async function getAllOtherUsers(username) {
+    console.log('get other users besides :', username)
+    try {
+        const response = await fetch(`/api/auth/allUsers?username=${encodeURIComponent(username)}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || data.msg || 'Failed to fetch users at server_call');
+        }
+
+        if (!Array.isArray(data)) {
+            throw new Error('Unexpected data format: expected an array of usernames');
+        }
+
+        return data;
+    } catch (error) {
+        console.error('User retrieval error:', error);
+        throw error;
+    }
+}
