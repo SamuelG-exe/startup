@@ -183,3 +183,40 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - Middleware verification of valid authentication tokens
 - Redirects unauthorized users to login page
 - Session persistence handled properly
+
+## Startup Login (12/7/24)
+*20% - Backend WebSocket Listener*
+- WebSocket server successfully implemented using ws package3
+- Handles connection upgrades and authentication
+- Maintains active connections in a Map for efficient user tracking
+- Implements error handling for connection management
+
+*20% - Frontend WebSocket Connection*
+- Establishes secure WebSocket connection using appropriate protocol (ws/wss)2
+- Implements automatic reconnection logic
+- Handles connection lifecycle events (open, close, error)
+- Manages connection state effectively
+
+*20% - WebSocket Data Transmission*
+- Implements bi-directional message passing3
+- Supports multiple message types:
+- Direct messages between users
+- Chat history requests
+- Message delivery confirmations
+- Ensures proper message serialization/deserialization
+
+*20% - Interface Integration*
+- Real-time message display in ChatWindow component1
+- Timestamp display for messages
+- Conversation management with proper user context
+- User search for new conversations implimented
+- Messages can be sent while other user is not connected.
+
+*20% - Functional Implementation*
+- Complete message persistence in MongoDB4
+- Chat history retrieval functionality
+- Proper error handling and user feedback
+- Content can be added
+- Profile can be edited
+- Look up of users based on genre implimented 
+- Events as viewable
