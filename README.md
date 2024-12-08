@@ -184,7 +184,7 @@ Stop searching and start creating. Freel helps you find the talent you need loca
 - Redirects unauthorized users to login page
 - Session persistence handled properly
 
-## Startup Login (12/7/24)
+## Startup Websocket (12/7/24)
 *20% - Backend WebSocket Listener*
 - WebSocket server successfully implemented using ws package3
 - Handles connection upgrades and authentication
