@@ -177,3 +177,73 @@ export async function getAllOtherUsers(username) {
         throw error;
     }
 }
+
+export function createWebSocketConnection(username, onMessageCallback) {
+    let port = window.location.port;
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    const ws = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws?username=${encodeURIComponent(username)}`);
+
+    ws.onopen = () => {
+        console.log('WebSocket connection established');
+    };
+
+    ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        onMessageCallback(data);
+    };
+
+    ws.onerror = (error) => {
+        console.error('WebSocket error:', error);
+    };
+
+    ws.onclose = () => {
+        console.log('WebSocket connection closed');
+    };
+
+    return {
+        sendMessage: (recipient, message) => {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({
+                    type: 'sendMessage',
+                    to: recipient,
+                    text: message
+                }));
+            } else {
+                console.error('WebSocket is not open. Current state:', ws.readyState);
+            }
+        },
+        getChatHistory: (otherUser) => {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({
+                    type: 'getChatHistory',
+                    with: otherUser
+                }));
+            } else {
+                console.error('WebSocket is not open. Current state:', ws.readyState);
+            }
+        },
+        close: () => ws.close()
+    };
+}
+
+export async function fetchChatHistory(user1, user2) {
+    try {
+        const response = await fetch(`/api/chat/history?user1=${encodeURIComponent(user1)}&user2=${encodeURIComponent(user2)}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || 'Failed to fetch chat history');
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Chat history retrieval error:', error);
+        throw error;
+    }
+}

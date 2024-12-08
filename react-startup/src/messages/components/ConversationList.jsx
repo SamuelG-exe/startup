@@ -1,59 +1,65 @@
+// ConversationList.jsx
 import React, { useState, useEffect } from 'react';
-import { ListGroup, Form, InputGroup } from 'react-bootstrap';
+import { ListGroup, Form, InputGroup, Dropdown } from 'react-bootstrap';
 import { getAllOtherUsers } from '../../call_service/server_call_methods';
 
 const ConversationList = ({ conversations, onSelectConversation, selectedConversation, username }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [allUsers, setAllUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
-
+  const [potentialUsers, setPotentialUsers] = useState([]);
+  
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchPotentialUsers = async () => {
       try {
         const users = await getAllOtherUsers(username);
-        setAllUsers(users);
-        setFilteredUsers(users);
+        // Filter out users who already have conversations
+        const newUsers = users.filter(user => 
+          !conversations.some(conv => conv.name === user)
+        );
+        setPotentialUsers(newUsers);
       } catch (error) {
         console.error('Failed to fetch users:', error);
       }
     };
-    fetchUsers();
-  }, [username]);
+    
+    fetchPotentialUsers();
+  }, [username, conversations]);
 
   const handleSearch = (event) => {
     const term = event.target.value.toLowerCase();
     setSearchTerm(term);
-    const filtered = allUsers.filter(user => 
-      user.toLowerCase().includes(term)
-    );
-    setFilteredUsers(filtered);
   };
+
+  const filteredPotentialUsers = potentialUsers.filter(user =>
+    user.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
       <InputGroup className="mb-3">
         <Form.Control
-          placeholder="Search users..."
+          placeholder="Search for new users..."
           value={searchTerm}
           onChange={handleSearch}
         />
       </InputGroup>
-      
+
+      <Dropdown show={searchTerm.length > 0}>
+        <Dropdown.Menu>
+          {filteredPotentialUsers.map(user => (
+            <Dropdown.Item 
+              key={user}
+              onClick={() => onSelectConversation({ id: user, name: user, isNewConversation: true })}
+            >
+              {user}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+
       <ListGroup>
-        {filteredUsers.map((user) => (
-          <ListGroup.Item
-            key={user}
-            action
-            onClick={() => onSelectConversation({ id: user, name: user })}
-            className="conversation-item"
-          >
-            {user}
-          </ListGroup.Item>
-        ))}
         {conversations.map((conversation) => (
           <ListGroup.Item
             key={conversation.id}
-            action
             active={selectedConversation?.id === conversation.id}
             onClick={() => onSelectConversation(conversation)}
             className="conversation-item"

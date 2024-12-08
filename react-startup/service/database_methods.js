@@ -200,4 +200,85 @@ async function getAllOtherUsernames(currentUsername) {
 }
 
 
-module.exports = {getAllOtherUsernames, addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent, getStoredProfiles };
+
+
+
+//websocket
+async function saveChatMessage(sender, recipient, message) {
+    try {
+        const client = await getDbConnection();
+        const database = client.db("FreelDB");
+        const chatCollection = database.collection("Messages");
+        
+        await chatCollection.insertOne({
+            sender,
+            recipient,
+            message,
+            timestamp: new Date(),
+            read: false
+        });
+        
+        return true;
+    } catch (error) {
+        console.error('Error saving chat message:', error);
+        throw error;
+    }
+}
+
+async function getChatHistory(user1, user2) {
+    try {
+        const client = await getDbConnection();
+        const database = client.db("FreelDB");
+        const chatCollection = database.collection("Messages");
+        
+        // Find messages where either user is sender or recipient
+        const messages = await chatCollection.find({
+            $or: [
+                { sender: user1, recipient: user2 },
+                { sender: user2, recipient: user1 }
+            ]
+        }).sort({ timestamp: 1 }).toArray();
+        
+        return messages;
+    } catch (error) {
+        console.error('Error retrieving chat history:', error);
+        throw error;
+    }
+}
+
+async function markMessagesAsRead(sender, recipient) {
+    try {
+        const client = await getDbConnection();
+        const database = client.db("FreelDB");
+        const chatCollection = database.collection("Messages");
+        
+        await chatCollection.updateMany(
+            { 
+                sender: sender, 
+                recipient: recipient,
+                read: false 
+            },
+            { $set: { read: true } }
+        );
+        
+        return true;
+    } catch (error) {
+        console.error('Error marking messages as read:', error);
+        throw error;
+    }
+}
+
+module.exports = {
+    saveChatMessage,
+    getChatHistory,
+    markMessagesAsRead, 
+    getAllOtherUsernames, 
+    addUser, 
+    findUser, 
+    addUserAuth, 
+    removeAuthToken, 
+    getUserByToken, 
+    addUserContent, 
+    getUserContent, 
+    getStoredProfiles 
+};

@@ -1,10 +1,9 @@
-//const { WebSocketServer } = require('ws');
 const express = require('express');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
-const { getAllOtherUsernames, addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent, getStoredProfiles } = require('./database_methods');
+const { getChatHistory, getAllOtherUsernames, addUser, findUser, addUserAuth, removeAuthToken, getUserByToken, addUserContent, getUserContent, getStoredProfiles } = require('./database_methods');
 const bcrypt = require('bcrypt');
-
+const { webSocket } = require('./webSocket');
 
 const app = express();
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -16,53 +15,7 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 
-//WEBSOCKET
-// const wss = new WebSocketServer({ noServer: true });
 
-// server.on('upgrade', (request, socket, head) => {
-//     wss.handleUpgrade(request, socket, head, function done(ws) {
-//       wss.emit('connection', ws, request);
-//     });
-//   });
-
-//   const connections = new Map();
-
-//   wss.on('connection', (ws, request) => {
-//     // Extract username from the request (e.g., via query or authentication token)
-//     const username = extractUsernameFromRequest(request);
-  
-//     if (!username) {
-//       ws.close(1008, 'Authentication required'); // Close if no username is provided
-//       return;
-//     }
-  
-//     connections.set(username, ws); // Store the WebSocket connection
-  
-//     ws.on('message', (data) => {
-//       const message = JSON.parse(data);
-  
-//       if (message.type === 'sendMessage') {
-//         const recipient = message.to; // The recipient's username
-//         const recipientWs = connections.get(recipient);
-  
-//         if (recipientWs) {
-//           recipientWs.send(JSON.stringify({ from: username, message: message.text }));
-//         } else {
-//           ws.send(JSON.stringify({ type: 'error', message: 'Recipient is not connected' }));
-//         }
-//       }
-//     });
-  
-//     ws.on('close', () => {
-//       connections.delete(username); // Remove user from the Map on disconnect
-//     });
-//   });
-
-
-//   function extractUsernameFromRequest(request) {
-//     const url = new URL(request.url, `http://${request.headers.host}`);
-//     return url.searchParams.get('username'); // Extract 'username' query param
-//   }
 //HTTP METHODS
 // Login route
 apiRouter.post('/auth/login', async (req, res) => {
@@ -305,13 +258,28 @@ apiRouter.get('/auth/allUsers', async (req, res) => {
 });
 
 
+apiRouter.get('/chat/history', async (req, res) => {
+    const { user1, user2 } = req.query;
 
+    if (!user1 || !user2) {
+        return res.status(400).json({ error: 'Both users are required' });
+    }
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    try {
+        const chatHistory = await getChatHistory(user1, user2);
+        res.status(200).json(chatHistory);
+    } catch (error) {
+        console.error('Error fetching chat history:', error);
+        res.status(500).json({ error: 'Failed to fetch chat history' });
+    }
 });
-
 
 app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
   });
+
+const httpService = app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});
+  
+webSocket(httpService);
