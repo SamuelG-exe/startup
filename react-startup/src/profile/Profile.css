@@ -4,8 +4,11 @@
     flex-direction: row;
     margin-bottom: 20px;
     width: 100%;
-    padding: 20px;
-    align-items: flex-start;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* padding: 5px; */
+    align-items: center;
+    
 
 }
 
@@ -31,7 +34,6 @@
     flex: 0 0 auto;
     width: 150px;
     text-align: center;
-    margin-left: 15%;
   }
   
   .image-box img {
@@ -181,29 +183,32 @@
     margin-top: 20px;
   }
 
-  @media screen and (max-width: 1000px) {
-    .events-attending {
+
+
+@media screen and (max-width: 500px) {
+  .about-box,
+  .contact-details {
       display: none;
-    }
   }
-  
-  @media screen and (max-width: 600px) {
-    .contact-details {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .contact-item {
-      margin-top: 10px;
-    }
-    
-    .profile-info {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .image-box {
-      margin-right: 0;
-      margin-bottom: 20px;
-    }
+
+  .profile-container {
+      justify-content: center;
+      padding: 0;
   }
+
+  .profile-info {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: auto; /* Changed from 100% */
+  }
+
+  .image-box {
+      margin: 0 auto;
+      width: 200px;
+  }
+
+  .description-box {
+      display: none; /* Hide the entire description box */
+  }
+}

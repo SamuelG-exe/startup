@@ -74,9 +74,7 @@ const Profile = () => {
             </div>
           </div>
           
-          <div className="events-attending">
-            Events section
-          </div>
+         
         </div>
       </div>
 
