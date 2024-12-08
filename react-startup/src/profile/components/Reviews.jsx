@@ -12,7 +12,6 @@ const Reviews = () => {
 
   return (
     <div className="reviews-box">
-      <p>Rating</p>
       <div>
         <span>{"⭐".repeat(Math.floor(roundedAverage))}</span>
         {/* Optional: Show half star */}

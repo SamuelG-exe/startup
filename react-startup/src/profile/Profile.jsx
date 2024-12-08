@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Profile.css';
 import '../App 2.css';
-import Reviews from './components/Reviews';
+import ProfileCard from './components/ProfileCard';
 import { useAuth } from '../App'; 
 import { addContent, getContent } from '../call_service/server_call_methods';
 
@@ -54,29 +54,10 @@ const Profile = () => {
 
   return (
     <>
-      <div>
-        <div className="profile-container">
-          <div className="image-box">
-            <div className="username">{displayUsername || 'Username'}</div>
-            <img src="https://via.placeholder.com/150" alt="Profile" />
-            <div className="content-genre">Content Type: {displayContentType || 'testing'}</div>
-            <Reviews />
-          </div>
-
-          <div className="description-box">
-            <div className="about-box">
-              About section content
-            </div>
-            <div className="contact-details">
-              <div className="contact-item">Contact 1</div>
-              <div className="contact-item">Contact 2</div>
-              <div className="contact-item">Contact 3</div>
-            </div>
-          </div>
-          
-         
-        </div>
-      </div>
+      <ProfileCard 
+      displayUsername={displayUsername}
+      displayContentType={displayContentType}
+    />
 
       <div className="featured-wrapper">
         <div className="featured-content">
