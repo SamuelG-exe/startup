@@ -1066,3 +1066,84 @@ fetch(url)
    .then(r => r.text())
    .then(text => console.log(text))
 ```
+
+## Final Review Notes: 
+
+**JavaScript & React Fundamentals:**
+
+Basic JavaScript Syntax:
+JavaScript is case-sensitive and statements end with semicolons1
+Variables must be defined before use and can contain A-Z, a-z, underscore, or digits1
+Strings require single or double quotes1
+Special characters need backslash escape1
+JSX extends JavaScript to allow HTML-like code alongside it2
+
+
+React Components:
+Components take props as parameters and return views via render method12
+JSX syntax transforms to React.createElement() at build time12
+State and props are used to store and pass data between components18
+Components automatically re-render when state changes18
+
+
+Web Protocols
+HTTP Protocol
+Works on Client-Server model using TCP/IP3
+Client establishes TCP connection, sends request, receives response, then closes connection3
+Request format includes Request-line, headers, empty line, and optional message body4
+
+
+WebSocket
+Created using WebSocket constructor with URL and optional protocols8
+Enables bi-directional communication between client and server8
+Uses wss:// or ws:// URL schemes8
+
+
+Web Services
+
+Core Concepts
+Enables machine-to-machine interaction over networks5
+Uses standardized messaging protocols5
+Supports reusing code, delivering services, and connecting existing programs5
+
+Types
+REST-compliant services: manipulate XML representations using stateless operations15
+SOAP-based services: use SOAP messages over HTTP15
+AJAX: combines HTTP servers, JavaScript clients, and XML/JSON15
+
+
+Database Services (MongoDB)
+Key Features
+Document-oriented NoSQL database16
+Stores data in JSON documents using BSON format16
+Supports indexing for faster access16
+Provides replica sets for high availability16
+Enables horizontal scaling through sharding16
+
+
+Security Best Practices
+
+Essential Measures
+Encrypt data and web traffic channels10
+Automate and integrate security software10
+Update software to patch vulnerabilities10
+Escape, validate, and sanitize incoming inputs10
+Manage cookies and authentication tokens10
+
+
+Web Application Frameworks
+Types
+Frontend frameworks: handle UI, user experience, and component architecture9
+Backend frameworks: manage server-side operations and database interactions9
+Popular Frameworks
+Angular: component-based architecture with TypeScript9
+Django: Python-based with built-in admin interface9
+ASP.NET: Microsoft's framework for desktop and mobile applications9
+
+
+Authorization Services
+Key Aspects
+Outsources permission and access control management7
+Streamlines application development process7
+Provides resilient access control7
+Allows focus on core application features
