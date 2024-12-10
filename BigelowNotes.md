@@ -1069,6 +1069,96 @@ fetch(url)
 
 ## Final Review Notes: 
 
+1. **What is the default port for HTTP/HTTPS/SSH?**  
+   - **HTTP**: 80  
+   - **HTTPS**: 443  
+   - **SSH**: 22  
+
+2. **What does an HTTP status code in the range of 300/400/500 indicate?**  
+   - **300**: Redirection (e.g., `301 Moved Permanently`, `302 Found`).  
+   - **400**: Client errors (e.g., `404 Not Found`, `401 Unauthorized`).  
+   - **500**: Server errors (e.g., `500 Internal Server Error`, `502 Bad Gateway`).  
+
+3. **What does the HTTP header `Content-Type` allow you to do?**  
+   - Specify the media type (MIME type) of the resource being sent, e.g., `application/json`, `text/html`, `image/png`. This informs the client how to process the response.
+
+4. **What does a “Secure cookie”/“Http-only cookie”/“Same-site cookie” do?**  
+   - **Secure cookie**: Transmitted only over HTTPS.  
+   - **Http-only cookie**: Not accessible via JavaScript (reduces XSS risk).  
+   - **Same-site cookie**: Restricts cookie sharing between sites to mitigate CSRF (options: `Strict`, `Lax`).
+
+5. **Assuming the following Express middleware, what would be the console.log output for an HTTP GET request with a URL path of `/api/document`?**  
+   - The output depends on the middleware’s code. For example:  
+     ```javascript
+     app.use((req, res, next) => {
+       console.log(req.method, req.path);
+       next();
+     });
+     ```
+     For `GET /api/document`, the output would be:  
+     `GET /api/document`.
+
+6. **Given the following Express service code: What does the following front-end JavaScript that performs a fetch return?**  
+   - The return depends on the backend response. For example, if the backend sends JSON like `{ "message": "success" }`, the fetch would return this JSON.
+
+7. **Given the following MongoDB query, select all of the matching documents `{name: "Mark"}`.**  
+   - Matches all documents in the collection where the `name` field equals `"Mark"`.
+
+8. **How should user passwords be stored?**  
+   - Using a **secure hashing algorithm** like bcrypt, Argon2, or PBKDF2 with a unique salt per password.
+
+9. **Assuming the following Node.js WebSocket code in the backend, and the following front-end WebSocket code, what will the front end log to the console?**  
+   - The log depends on the backend message. If the backend sends `"Hello"`, the front end will log `"Hello"`.
+
+10. **What is the WebSocket protocol intended to provide?**  
+    - A persistent, full-duplex communication channel between client and server over a single TCP connection.
+
+11. **What do the following acronyms stand for?**  
+    - **JSX**: JavaScript XML  
+    - **JS**: JavaScript  
+    - **AWS**: Amazon Web Services  
+    - **NPM**: Node Package Manager  
+    - **NVM**: Node Version Manager  
+
+12. **Assuming an HTML document with a body element, what text content will the following React component generate?**  
+    - React components generate text content as defined by their `render` logic or return statement.
+
+13. **Given a set of components that include each other, what will be generated?**  
+    - React resolves and renders the components hierarchically. Circular dependencies may throw an error.
+
+14. **What does a React component with `React.useState` do?**  
+    - Provides state management within a functional component.
+
+15. **What are React Hooks used for?**  
+    - To manage state, lifecycle, and other side effects in functional components.
+
+16. **What does the State Hook/Context Hook/Ref Hook/Effect Hook/Performance Hook do?**  
+    - **State Hook**: Manages state (`useState`).  
+    - **Context Hook**: Shares state across components (`useContext`).  
+    - **Ref Hook**: Accesses DOM nodes or persists values across renders (`useRef`).  
+    - **Effect Hook**: Manages side effects (`useEffect`).  
+    - **Performance Hook**: Optimizes performance (`useMemo`, `useCallback`).
+
+17. **Given React Router code, select statements that are true.**  
+    - True statements depend on the code. Examples might include route matching behavior or nested routing.
+
+18. **What does the `package.json` file do?**  
+    - Specifies project metadata, dependencies, scripts, and configuration for a Node.js project.
+
+19. **What does the `fetch` function do?**  
+    - Makes HTTP requests, returning a `Promise` for the response.
+
+20. **What does Node.js do?**  
+    - Provides a runtime for executing JavaScript on the server side.
+
+21. **What does `pm2` do?**  
+    - A process manager for Node.js applications, providing features like clustering, monitoring, and restarting on failure.
+
+22. **What does Vite do?**  
+    - A fast build tool and development server optimized for modern web projects, offering instant HMR and optimized builds.
+
+
+
 **JavaScript & React Fundamentals:**
 
 Basic JavaScript Syntax:
